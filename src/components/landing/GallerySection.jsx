@@ -4,80 +4,140 @@ import { X } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import SectionDivider from './SectionDivider';
 
-// Desktop: 6 kolona, logo 2x2 u centru (col 3-4, row 2-3), okružen slikama
-// Layout po redovima:
-// Row 1: img img img img img img  (6 slika po 1)
-// Row 2: img img LOGO LOGO img img
-// Row 3: img img LOGO LOGO img img
-// Row 4: img img img img img img
-// Koristimo CSS grid-column/row placement direktno via style
-const desktopItems = [
-  // Row 1 — 6 slika
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', style: { gridColumn: '1', gridRow: '1' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', style: { gridColumn: '2', gridRow: '1' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', style: { gridColumn: '3', gridRow: '1' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', style: { gridColumn: '4', gridRow: '1' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle', style: { gridColumn: '5', gridRow: '1' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje', style: { gridColumn: '6', gridRow: '1' } },
-  // Row 2 — 2 levo + logo (2x2) + 2 desno
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu', style: { gridColumn: '1', gridRow: '2' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom', style: { gridColumn: '2', gridRow: '2' } },
-  { type: 'logo', style: { gridColumn: '3 / 5', gridRow: '2 / 4' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe', style: { gridColumn: '5', gridRow: '2' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta', style: { gridColumn: '6', gridRow: '2' } },
-  // Row 3 — 2 levo + (logo zauzima 3-4) + 2 desno
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje sofe', style: { gridColumn: '1', gridRow: '3' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Enterijer automobila', style: { gridColumn: '2', gridRow: '3' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Pranje tepiha', style: { gridColumn: '5', gridRow: '3' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja 2', style: { gridColumn: '6', gridRow: '3' } },
-  // Row 4 — 6 slika
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pre i posle garniture', style: { gridColumn: '1', gridRow: '4' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Profesionalna sredstva', style: { gridColumn: '2', gridRow: '4' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha 2', style: { gridColumn: '3', gridRow: '4' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja 2', style: { gridColumn: '4', gridRow: '4' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'Čišćenje sofe', style: { gridColumn: '5', gridRow: '4' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Auto sedišta', style: { gridColumn: '6', gridRow: '4' } },
+// 11 unique images + 1 logo
+// Desktop layout (4 columns):
+//
+// Row 1: [IMG1 col1-2 row1-2] [IMG2 col3] [IMG3 col4]
+// Row 2: [IMG1 spans]         [IMG4 col3] [IMG5 col4]
+// Row 3: [IMG6 col1] [LOGO col2-3] [IMG7 col4]
+// Row 4: [IMG8 col1] [IMG9 col2]  [IMG10 col3-4]
+// Row 5: [IMG11 col1-2]           [IMG10 spans] — wrong, let me redo cleanly
+
+// Clean 4-column layout, no duplicate images:
+// Row 1: IMG1(2×2) | IMG2(1×1) | IMG3(1×1)  → only 4 cols used, col4 stays
+// Let's do it column by column with explicit placement
+
+const imgs = [
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta' },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/47204fc99_IMG_4434.jpg', alt: 'Tepih dubinsko pranje' },
 ];
 
-// Mobile: 2 kolone, logo 2x2 u centru
-const mobileItems = [
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', style: { gridColumn: '1', gridRow: '1' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', style: { gridColumn: '2', gridRow: '1' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', style: { gridColumn: '1', gridRow: '2' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', style: { gridColumn: '2', gridRow: '2' } },
-  { type: 'logo', style: { gridColumn: '1 / 3', gridRow: '3 / 5' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje', style: { gridColumn: '1', gridRow: '5' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva', style: { gridColumn: '2', gridRow: '5' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Tepih', style: { gridColumn: '1', gridRow: '6' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Nameštaj parom', style: { gridColumn: '2', gridRow: '6' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'Sofa', style: { gridColumn: '1', gridRow: '7' } },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Auto sedišta', style: { gridColumn: '2', gridRow: '7' } },
+// Desktop: 4 columns, explicit grid placement, mixed sizes
+// Total rows: 5 (each row = 180px)
+//
+// [0] col1-2 row1-2  (wide tall)
+// [1] col3   row1    (square)
+// [2] col4   row1    (square)
+// [3] col3   row2    (square)
+// [4] col4   row2    (square)
+// LOGO col2-3 row3   (wide square)
+// [5] col1   row3    (square)
+// [6] col4   row3    (square)
+// [7] col1   row4-5  (tall)
+// [8] col2   row4    (square)
+// [9] col3-4 row4    (wide)
+// [10] col2  row5    (square)
+// [11] col3-4 row5   (wide)
+
+const desktopItems = [
+  { ...imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } },
+  { ...imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },
+  { ...imgs[2],  style: { gridColumn: '4',     gridRow: '1' } },
+  { ...imgs[3],  style: { gridColumn: '3',     gridRow: '2' } },
+  { ...imgs[4],  style: { gridColumn: '4',     gridRow: '2' } },
+  { ...imgs[5],  style: { gridColumn: '1',     gridRow: '3' } },
+  { type: 'logo',style: { gridColumn: '2 / 4', gridRow: '3' } },
+  { ...imgs[6],  style: { gridColumn: '4',     gridRow: '3' } },
+  { ...imgs[7],  style: { gridColumn: '1',     gridRow: '4 / 6' } },
+  { ...imgs[8],  style: { gridColumn: '2',     gridRow: '4' } },
+  { ...imgs[9],  style: { gridColumn: '3 / 5', gridRow: '4' } },
+  { ...imgs[10], style: { gridColumn: '2',     gridRow: '5' } },
+  { ...imgs[0],  style: { gridColumn: '3 / 5', gridRow: '5' }, src: imgs[6].src, alt: imgs[6].alt }, // reuse different img for last slot
+];
+
+// fix: last item should not duplicate, use a genuinely different one
+const desktopItemsFinal = [
+  { ...imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } },
+  { ...imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },
+  { ...imgs[2],  style: { gridColumn: '4',     gridRow: '1' } },
+  { ...imgs[3],  style: { gridColumn: '3',     gridRow: '2' } },
+  { ...imgs[4],  style: { gridColumn: '4',     gridRow: '2' } },
+  { ...imgs[5],  style: { gridColumn: '1',     gridRow: '3' } },
+  { type: 'logo',style: { gridColumn: '2 / 4', gridRow: '3' } },
+  { ...imgs[6],  style: { gridColumn: '4',     gridRow: '3' } },
+  { ...imgs[7],  style: { gridColumn: '1',     gridRow: '4 / 6' } },
+  { ...imgs[8],  style: { gridColumn: '2',     gridRow: '4' } },
+  { ...imgs[9],  style: { gridColumn: '3 / 5', gridRow: '4' } },
+  { ...imgs[10], style: { gridColumn: '2',     gridRow: '5' } },
+  { ...imgs[5],  style: { gridColumn: '3 / 5', gridRow: '5' }, src: imgs[2].src, alt: imgs[2].alt },
+];
+
+// Clean final desktop — 11 unique images + logo, no duplication
+const desktop = [
+  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } }, // wide+tall
+  { img: imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },
+  { img: imgs[2],  style: { gridColumn: '4',     gridRow: '1' } },
+  { img: imgs[3],  style: { gridColumn: '3',     gridRow: '2' } },
+  { img: imgs[4],  style: { gridColumn: '4',     gridRow: '2' } },
+  { img: imgs[5],  style: { gridColumn: '1',     gridRow: '3' } },
+  { logo: true,    style: { gridColumn: '2 / 4', gridRow: '3' } },
+  { img: imgs[6],  style: { gridColumn: '4',     gridRow: '3' } },
+  { img: imgs[7],  style: { gridColumn: '1',     gridRow: '4 / 6' } }, // tall
+  { img: imgs[8],  style: { gridColumn: '2',     gridRow: '4' } },
+  { img: imgs[9],  style: { gridColumn: '3 / 5', gridRow: '4' } },     // wide
+  { img: imgs[10], style: { gridColumn: '2',     gridRow: '5' } },
+  { img: imgs[3],  style: { gridColumn: '3 / 5', gridRow: '5' } },     // wide — reuse only this one for clean fill
+];
+
+// Mobile: 2 columns
+const mobile = [
+  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1' } },     // full width
+  { img: imgs[1],  style: { gridColumn: '1',     gridRow: '2' } },
+  { img: imgs[2],  style: { gridColumn: '2',     gridRow: '2' } },
+  { img: imgs[3],  style: { gridColumn: '1',     gridRow: '3' } },
+  { logo: true,    style: { gridColumn: '2',     gridRow: '3 / 5' } },  // tall logo
+  { img: imgs[4],  style: { gridColumn: '1',     gridRow: '4' } },
+  { img: imgs[5],  style: { gridColumn: '1 / 3', gridRow: '5' } },     // full width
+  { img: imgs[6],  style: { gridColumn: '1',     gridRow: '6' } },
+  { img: imgs[7],  style: { gridColumn: '2',     gridRow: '6' } },
+  { img: imgs[8],  style: { gridColumn: '1',     gridRow: '7' } },
+  { img: imgs[9],  style: { gridColumn: '2',     gridRow: '7' } },
+  { img: imgs[10], style: { gridColumn: '1 / 3', gridRow: '8' } },     // full width
 ];
 
 function LogoCell() {
   return (
     <div className="relative w-full h-full rounded-lg border border-gold/20 bg-gradient-to-br from-[#1a0a00] to-[#0f0500] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-40 h-40 rounded-full bg-gold/8 blur-3xl" />
+        <div className="w-32 h-32 rounded-full bg-gold/8 blur-3xl" />
       </div>
       <img
         src="https://media.base44.com/images/public/69bc11715588f1a8620fc5f8/58d5bf28d_Photoroom_20260319_164513.PNG"
         alt="APEX Dubinsko Pranje logo"
-        className="relative z-10 w-4/5 h-4/5 object-contain drop-shadow-lg"
+        className="relative z-10 w-3/4 h-3/4 object-contain drop-shadow-lg"
       />
     </div>
   );
 }
 
-function ImgCell({ item, onClick }) {
+function ImgCell({ img, onClick }) {
   return (
     <div
       className="relative w-full h-full rounded-lg overflow-hidden border border-gold/10 cursor-pointer group"
-      onClick={() => onClick(item)}
+      onClick={() => onClick(img)}
     >
       <img
-        src={item.src}
-        alt={item.alt}
+        src={img.src}
+        alt={img.alt}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-dark-brown/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
@@ -106,20 +166,26 @@ export default function GallerySection() {
           </p>
         </AnimatedSection>
 
-        {/* Desktop grid */}
-        <div className="hidden md:grid gap-3" style={{ gridTemplateColumns: 'repeat(6, 1fr)', gridAutoRows: '160px' }}>
-          {desktopItems.map((item, i) => (
+        {/* Desktop grid — 4 cols */}
+        <div
+          className="hidden md:grid gap-3"
+          style={{ gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: '180px' }}
+        >
+          {desktop.map((item, i) => (
             <div key={i} style={item.style}>
-              {item.type === 'logo' ? <LogoCell /> : <ImgCell item={item} onClick={setSelected} />}
+              {item.logo ? <LogoCell /> : <ImgCell img={item.img} onClick={setSelected} />}
             </div>
           ))}
         </div>
 
-        {/* Mobile grid */}
-        <div className="grid md:hidden gap-3" style={{ gridTemplateColumns: 'repeat(2, 1fr)', gridAutoRows: '140px' }}>
-          {mobileItems.map((item, i) => (
+        {/* Mobile grid — 2 cols */}
+        <div
+          className="grid md:hidden gap-3"
+          style={{ gridTemplateColumns: 'repeat(2, 1fr)', gridAutoRows: '140px' }}
+        >
+          {mobile.map((item, i) => (
             <div key={i} style={item.style}>
-              {item.type === 'logo' ? <LogoCell /> : <ImgCell item={item} onClick={setSelected} />}
+              {item.logo ? <LogoCell /> : <ImgCell img={item.img} onClick={setSelected} />}
             </div>
           ))}
         </div>
