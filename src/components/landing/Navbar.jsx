@@ -24,8 +24,12 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-dark-brown/95 backdrop-blur-md shadow-lg shadow-black/20' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#hero" className="font-playfair text-2xl font-bold text-gold tracking-wider">
-          APEX
+        <a href="#hero" className="flex items-center">
+          <img
+            src="https://media.base44.com/images/public/69bc11715588f1a8620fc5f8/45f0f07a0_B7C3E551-A616-4D0F-9102-B492D7442ED6.PNG"
+            alt="APEX Dubinsko Pranje logo"
+            className="h-12 w-auto object-contain"
+          />
         </a>
 
         {/* Desktop */}
