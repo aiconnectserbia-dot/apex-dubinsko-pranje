@@ -107,28 +107,20 @@ export default function GallerySection() {
         </AnimatedSection>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-4 gap-3 auto-rows-[200px]">
+        <div className="hidden md:grid gap-3" style={{ gridTemplateColumns: 'repeat(6, 1fr)', gridAutoRows: '160px' }}>
           {desktopItems.map((item, i) => (
-            <AnimatedSection key={i} delay={0.04 * (i + 1)} className={item.cls}>
-              {item.type === 'logo' ? (
-                <LogoCell />
-              ) : (
-                <ImgCell item={item} onClick={setSelected} />
-              )}
-            </AnimatedSection>
+            <div key={i} style={item.style}>
+              {item.type === 'logo' ? <LogoCell /> : <ImgCell item={item} onClick={setSelected} />}
+            </div>
           ))}
         </div>
 
         {/* Mobile grid */}
-        <div className="grid md:hidden grid-cols-2 gap-3 auto-rows-[160px]">
+        <div className="grid md:hidden gap-3" style={{ gridTemplateColumns: 'repeat(2, 1fr)', gridAutoRows: '140px' }}>
           {mobileItems.map((item, i) => (
-            <AnimatedSection key={i} delay={0.04 * (i + 1)} className={item.cls}>
-              {item.type === 'logo' ? (
-                <LogoCell />
-              ) : (
-                <ImgCell item={item} onClick={setSelected} />
-              )}
-            </AnimatedSection>
+            <div key={i} style={item.style}>
+              {item.type === 'logo' ? <LogoCell /> : <ImgCell item={item} onClick={setSelected} />}
+            </div>
           ))}
         </div>
       </div>
