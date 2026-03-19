@@ -28,7 +28,7 @@ export default function Navbar() {
           <img
             src="https://media.base44.com/images/public/69bc11715588f1a8620fc5f8/45f0f07a0_B7C3E551-A616-4D0F-9102-B492D7442ED6.PNG"
             alt="APEX Dubinsko Pranje logo"
-            className="h-12 w-auto object-contain"
+            className="h-20 w-auto object-contain mix-blend-lighten"
           />
         </a>
 
