@@ -4,39 +4,54 @@ import { X } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import SectionDivider from './SectionDivider';
 
-// Slike sa ljudima (IMG_4444, IMG_4445) razbacane - na poziciji 4 i 8 (ne zajedno)
-// Logo ćelija na desktop: col 3-4, row 3 | na mobile: sredina (row 3)
+// Desktop: 6 kolona, logo 2x2 u centru (col 3-4, row 2-3), okružen slikama
+// Layout po redovima:
+// Row 1: img img img img img img  (6 slika po 1)
+// Row 2: img img LOGO LOGO img img
+// Row 3: img img LOGO LOGO img img
+// Row 4: img img img img img img
+// Koristimo CSS grid-column/row placement direktno via style
 const desktopItems = [
-  // Row 1–2: velika slika levo + 2 male desno
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', cls: 'col-span-2 row-span-2' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', cls: 'col-span-1 row-span-1' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', cls: 'col-span-1 row-span-1' },
-  // Row 2 desno: slika sa čovekom + mala
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle', cls: 'col-span-1 row-span-1' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', cls: 'col-span-1 row-span-1' },
-  // Row 3: mala + mala + LOGO (2 wide) 
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje', cls: 'col-span-1 row-span-1' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu', cls: 'col-span-1 row-span-1' },
-  { type: 'logo', cls: 'col-span-2 row-span-1' },
-  // Row 4: široka slika + mala sa čovekom + mala
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom', cls: 'col-span-2 row-span-1' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe', cls: 'col-span-1 row-span-1' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta', cls: 'col-span-1 row-span-1' },
+  // Row 1 — 6 slika
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', style: { gridColumn: '1', gridRow: '1' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', style: { gridColumn: '2', gridRow: '1' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', style: { gridColumn: '3', gridRow: '1' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', style: { gridColumn: '4', gridRow: '1' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle', style: { gridColumn: '5', gridRow: '1' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje', style: { gridColumn: '6', gridRow: '1' } },
+  // Row 2 — 2 levo + logo (2x2) + 2 desno
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu', style: { gridColumn: '1', gridRow: '2' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom', style: { gridColumn: '2', gridRow: '2' } },
+  { type: 'logo', style: { gridColumn: '3 / 5', gridRow: '2 / 4' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe', style: { gridColumn: '5', gridRow: '2' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta', style: { gridColumn: '6', gridRow: '2' } },
+  // Row 3 — 2 levo + (logo zauzima 3-4) + 2 desno
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje sofe', style: { gridColumn: '1', gridRow: '3' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Enterijer automobila', style: { gridColumn: '2', gridRow: '3' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Pranje tepiha', style: { gridColumn: '5', gridRow: '3' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja 2', style: { gridColumn: '6', gridRow: '3' } },
+  // Row 4 — 6 slika
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pre i posle garniture', style: { gridColumn: '1', gridRow: '4' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Profesionalna sredstva', style: { gridColumn: '2', gridRow: '4' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha 2', style: { gridColumn: '3', gridRow: '4' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja 2', style: { gridColumn: '4', gridRow: '4' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'Čišćenje sofe', style: { gridColumn: '5', gridRow: '4' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Auto sedišta', style: { gridColumn: '6', gridRow: '4' } },
 ];
 
-// Mobile: 2 kolone, logo u sredini (row 3, span 2)
+// Mobile: 2 kolone, logo 2x2 u centru
 const mobileItems = [
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', cls: '' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', cls: '' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', cls: '' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', cls: '' },
-  { type: 'logo', cls: 'col-span-2' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle', cls: '' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje', cls: '' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu', cls: '' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom', cls: 'col-span-2' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe', cls: '' },
-  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', style: { gridColumn: '1', gridRow: '1' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', style: { gridColumn: '2', gridRow: '1' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', style: { gridColumn: '1', gridRow: '2' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', style: { gridColumn: '2', gridRow: '2' } },
+  { type: 'logo', style: { gridColumn: '1 / 3', gridRow: '3 / 5' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje', style: { gridColumn: '1', gridRow: '5' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva', style: { gridColumn: '2', gridRow: '5' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Tepih', style: { gridColumn: '1', gridRow: '6' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Nameštaj parom', style: { gridColumn: '2', gridRow: '6' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'Sofa', style: { gridColumn: '1', gridRow: '7' } },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Auto sedišta', style: { gridColumn: '2', gridRow: '7' } },
 ];
 
 function LogoCell() {
