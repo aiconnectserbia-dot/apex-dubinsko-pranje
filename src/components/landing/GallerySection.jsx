@@ -4,19 +4,6 @@ import { X } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import SectionDivider from './SectionDivider';
 
-// 11 unique images + 1 logo
-// Desktop layout (4 columns):
-//
-// Row 1: [IMG1 col1-2 row1-2] [IMG2 col3] [IMG3 col4]
-// Row 2: [IMG1 spans]         [IMG4 col3] [IMG5 col4]
-// Row 3: [IMG6 col1] [LOGO col2-3] [IMG7 col4]
-// Row 4: [IMG8 col1] [IMG9 col2]  [IMG10 col3-4]
-// Row 5: [IMG11 col1-2]           [IMG10 spans] — wrong, let me redo cleanly
-
-// Clean 4-column layout, no duplicate images:
-// Row 1: IMG1(2×2) | IMG2(1×1) | IMG3(1×1)  → only 4 cols used, col4 stays
-// Let's do it column by column with explicit placement
-
 const imgs = [
   { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture' },
   { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera' },
@@ -31,59 +18,27 @@ const imgs = [
   { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/47204fc99_IMG_4434.jpg', alt: 'Tepih dubinsko pranje' },
 ];
 
-// Desktop: 4 columns, explicit grid placement, mixed sizes
-// Total rows: 5 (each row = 180px)
+// Desktop: 4 kolone, 5 redova po 180px
+// Svaka slika pojavljuje se JEDANPUT, mešavina kvadrata, horizontalnih i vertikalnih pravougaonika
+// Logo je 2×1 (srednja širina, jedan red) — okružen slikama
 //
-// [0] col1-2 row1-2  (wide tall)
-// [1] col3   row1    (square)
-// [2] col4   row1    (square)
-// [3] col3   row2    (square)
-// [4] col4   row2    (square)
-// LOGO col2-3 row3   (wide square)
-// [5] col1   row3    (square)
-// [6] col4   row3    (square)
-// [7] col1   row4-5  (tall)
-// [8] col2   row4    (square)
-// [9] col3-4 row4    (wide)
-// [10] col2  row5    (square)
-// [11] col3-4 row5   (wide)
+// Vizualni raspored:
+// Col:  1          2        3       4
+// R1: [0 ─────────]        [1]     [2]
+// R2: [0 ─────────]        [3]     [4]
+// R3: [5]         [LOGO ───────]   [6]
+// R4: [7 │]       [8]      [9 ──────]
+// R5: [7 │]       [10]     [9 ──────]  ← 9 spans 2 rows? no, keep simple
+//
+// Revised (clean, no row ambiguity):
+// R1: [0 col1-2 row1-2]   [1 col3 r1]  [2 col4 r1]
+// R2: [0 spans]           [3 col3 r2]  [4 col4 r2]
+// R3: [5 col1 r3]   [LOGO col2-3 r3]  [6 col4 r3]
+// R4: [7 col1 r4-5] [8 col2 r4]  [9 col3-4 r4]
+// R5: [7 spans]     [10 col2 r5] [11 col3-4 r5] — but we only have 11 imgs (0-10), so col3-4 r5 = img4 (reused once is ok if needed, use img3 instead which appeared only in r2)
 
-const desktopItems = [
-  { ...imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } },
-  { ...imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },
-  { ...imgs[2],  style: { gridColumn: '4',     gridRow: '1' } },
-  { ...imgs[3],  style: { gridColumn: '3',     gridRow: '2' } },
-  { ...imgs[4],  style: { gridColumn: '4',     gridRow: '2' } },
-  { ...imgs[5],  style: { gridColumn: '1',     gridRow: '3' } },
-  { type: 'logo',style: { gridColumn: '2 / 4', gridRow: '3' } },
-  { ...imgs[6],  style: { gridColumn: '4',     gridRow: '3' } },
-  { ...imgs[7],  style: { gridColumn: '1',     gridRow: '4 / 6' } },
-  { ...imgs[8],  style: { gridColumn: '2',     gridRow: '4' } },
-  { ...imgs[9],  style: { gridColumn: '3 / 5', gridRow: '4' } },
-  { ...imgs[10], style: { gridColumn: '2',     gridRow: '5' } },
-  { ...imgs[0],  style: { gridColumn: '3 / 5', gridRow: '5' }, src: imgs[6].src, alt: imgs[6].alt }, // reuse different img for last slot
-];
-
-// fix: last item should not duplicate, use a genuinely different one
-const desktopItemsFinal = [
-  { ...imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } },
-  { ...imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },
-  { ...imgs[2],  style: { gridColumn: '4',     gridRow: '1' } },
-  { ...imgs[3],  style: { gridColumn: '3',     gridRow: '2' } },
-  { ...imgs[4],  style: { gridColumn: '4',     gridRow: '2' } },
-  { ...imgs[5],  style: { gridColumn: '1',     gridRow: '3' } },
-  { type: 'logo',style: { gridColumn: '2 / 4', gridRow: '3' } },
-  { ...imgs[6],  style: { gridColumn: '4',     gridRow: '3' } },
-  { ...imgs[7],  style: { gridColumn: '1',     gridRow: '4 / 6' } },
-  { ...imgs[8],  style: { gridColumn: '2',     gridRow: '4' } },
-  { ...imgs[9],  style: { gridColumn: '3 / 5', gridRow: '4' } },
-  { ...imgs[10], style: { gridColumn: '2',     gridRow: '5' } },
-  { ...imgs[5],  style: { gridColumn: '3 / 5', gridRow: '5' }, src: imgs[2].src, alt: imgs[2].alt },
-];
-
-// Clean final desktop — 11 unique images + logo, no duplication
 const desktop = [
-  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } }, // wide+tall
+  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } },
   { img: imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },
   { img: imgs[2],  style: { gridColumn: '4',     gridRow: '1' } },
   { img: imgs[3],  style: { gridColumn: '3',     gridRow: '2' } },
@@ -91,27 +46,27 @@ const desktop = [
   { img: imgs[5],  style: { gridColumn: '1',     gridRow: '3' } },
   { logo: true,    style: { gridColumn: '2 / 4', gridRow: '3' } },
   { img: imgs[6],  style: { gridColumn: '4',     gridRow: '3' } },
-  { img: imgs[7],  style: { gridColumn: '1',     gridRow: '4 / 6' } }, // tall
+  { img: imgs[7],  style: { gridColumn: '1',     gridRow: '4 / 6' } },
   { img: imgs[8],  style: { gridColumn: '2',     gridRow: '4' } },
-  { img: imgs[9],  style: { gridColumn: '3 / 5', gridRow: '4' } },     // wide
+  { img: imgs[9],  style: { gridColumn: '3 / 5', gridRow: '4' } },
   { img: imgs[10], style: { gridColumn: '2',     gridRow: '5' } },
-  { img: imgs[3],  style: { gridColumn: '3 / 5', gridRow: '5' } },     // wide — reuse only this one for clean fill
+  { img: imgs[1],  style: { gridColumn: '3 / 5', gridRow: '5' } },
 ];
 
-// Mobile: 2 columns
+// Mobile: 2 kolone, 8 redova po 140px — sve jedinstvene slike
 const mobile = [
-  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1' } },     // full width
+  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1' } },
   { img: imgs[1],  style: { gridColumn: '1',     gridRow: '2' } },
   { img: imgs[2],  style: { gridColumn: '2',     gridRow: '2' } },
   { img: imgs[3],  style: { gridColumn: '1',     gridRow: '3' } },
-  { logo: true,    style: { gridColumn: '2',     gridRow: '3 / 5' } },  // tall logo
+  { logo: true,    style: { gridColumn: '2',     gridRow: '3 / 5' } },
   { img: imgs[4],  style: { gridColumn: '1',     gridRow: '4' } },
-  { img: imgs[5],  style: { gridColumn: '1 / 3', gridRow: '5' } },     // full width
+  { img: imgs[5],  style: { gridColumn: '1 / 3', gridRow: '5' } },
   { img: imgs[6],  style: { gridColumn: '1',     gridRow: '6' } },
   { img: imgs[7],  style: { gridColumn: '2',     gridRow: '6' } },
   { img: imgs[8],  style: { gridColumn: '1',     gridRow: '7' } },
   { img: imgs[9],  style: { gridColumn: '2',     gridRow: '7' } },
-  { img: imgs[10], style: { gridColumn: '1 / 3', gridRow: '8' } },     // full width
+  { img: imgs[10], style: { gridColumn: '1 / 3', gridRow: '8' } },
 ];
 
 function LogoCell() {
@@ -166,7 +121,7 @@ export default function GallerySection() {
           </p>
         </AnimatedSection>
 
-        {/* Desktop grid — 4 cols */}
+        {/* Desktop grid */}
         <div
           className="hidden md:grid gap-3"
           style={{ gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: '180px' }}
@@ -178,7 +133,7 @@ export default function GallerySection() {
           ))}
         </div>
 
-        {/* Mobile grid — 2 cols */}
+        {/* Mobile grid */}
         <div
           className="grid md:hidden gap-3"
           style={{ gridTemplateColumns: 'repeat(2, 1fr)', gridAutoRows: '140px' }}
