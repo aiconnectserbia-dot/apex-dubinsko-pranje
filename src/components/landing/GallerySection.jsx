@@ -41,21 +41,15 @@ const mobileItems = [
 
 function LogoCell() {
   return (
-    <div className="relative w-full h-full rounded-lg border border-gold/20 bg-gradient-to-br from-[#1a0a00] to-[#0f0500] flex flex-col items-center justify-center gap-3 overflow-hidden">
-      {/* Subtle glow */}
+    <div className="relative w-full h-full rounded-lg border border-gold/20 bg-gradient-to-br from-[#1a0a00] to-[#0f0500] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-40 h-40 rounded-full bg-gold/8 blur-3xl" />
       </div>
-      {/* Corner lines */}
-      <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-gold/30" />
-      <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-gold/30" />
-      <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-gold/30" />
-      <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-gold/30" />
-      <div className="relative flex flex-col items-center gap-1">
-        <span className="font-playfair text-4xl md:text-5xl font-bold text-gold tracking-widest">APEX</span>
-        <div className="h-px w-16 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-        <span className="font-inter text-cream/40 text-xs tracking-[0.25em] uppercase">Dubinsko pranje</span>
-      </div>
+      <img
+        src="https://media.base44.com/images/public/69bc11715588f1a8620fc5f8/58d5bf28d_Photoroom_20260319_164513.PNG"
+        alt="APEX Dubinsko Pranje logo"
+        className="relative z-10 w-4/5 h-4/5 object-contain drop-shadow-lg"
+      />
     </div>
   );
 }
