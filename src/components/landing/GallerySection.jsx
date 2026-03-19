@@ -4,18 +4,82 @@ import { X } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import SectionDivider from './SectionDivider';
 
-const galleryImages = [
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', span: 'col-span-2 row-span-2' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', span: 'col-span-1 row-span-1' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', span: 'col-span-1 row-span-1' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja profesionalnom opremom', span: 'col-span-1 row-span-1' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle', span: 'col-span-1 row-span-2' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu', span: 'col-span-1 row-span-1' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje', span: 'col-span-1 row-span-1' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom', span: 'col-span-2 row-span-1' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe', span: 'col-span-1 row-span-1' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta', span: 'col-span-1 row-span-1' },
+// Slike sa ljudima (IMG_4444, IMG_4445) razbacane - na poziciji 4 i 8 (ne zajedno)
+// Logo ćelija na desktop: col 3-4, row 3 | na mobile: sredina (row 3)
+const desktopItems = [
+  // Row 1–2: velika slika levo + 2 male desno
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', cls: 'col-span-2 row-span-2' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', cls: 'col-span-1 row-span-1' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', cls: 'col-span-1 row-span-1' },
+  // Row 2 desno: slika sa čovekom + mala
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle', cls: 'col-span-1 row-span-1' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', cls: 'col-span-1 row-span-1' },
+  // Row 3: mala + mala + LOGO (2 wide) 
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje', cls: 'col-span-1 row-span-1' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu', cls: 'col-span-1 row-span-1' },
+  { type: 'logo', cls: 'col-span-2 row-span-1' },
+  // Row 4: široka slika + mala sa čovekom + mala
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom', cls: 'col-span-2 row-span-1' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe', cls: 'col-span-1 row-span-1' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta', cls: 'col-span-1 row-span-1' },
 ];
+
+// Mobile: 2 kolone, logo u sredini (row 3, span 2)
+const mobileItems = [
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja', cls: '' },
+  { type: 'logo', cls: 'col-span-2' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom', cls: 'col-span-2' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe', cls: '' },
+  { type: 'img', src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta', cls: '' },
+];
+
+function LogoCell() {
+  return (
+    <div className="relative w-full h-full rounded-lg border border-gold/20 bg-gradient-to-br from-[#1a0a00] to-[#0f0500] flex flex-col items-center justify-center gap-3 overflow-hidden">
+      {/* Subtle glow */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-40 h-40 rounded-full bg-gold/8 blur-3xl" />
+      </div>
+      {/* Corner lines */}
+      <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-gold/30" />
+      <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-gold/30" />
+      <div className="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-gold/30" />
+      <div className="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-gold/30" />
+      <div className="relative flex flex-col items-center gap-1">
+        <span className="font-playfair text-4xl md:text-5xl font-bold text-gold tracking-widest">APEX</span>
+        <div className="h-px w-16 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+        <span className="font-inter text-cream/40 text-xs tracking-[0.25em] uppercase">Dubinsko pranje</span>
+      </div>
+    </div>
+  );
+}
+
+function ImgCell({ item, onClick }) {
+  return (
+    <div
+      className="relative w-full h-full rounded-lg overflow-hidden border border-gold/10 cursor-pointer group"
+      onClick={() => onClick(item)}
+    >
+      <img
+        src={item.src}
+        alt={item.alt}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-dark-brown/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center">
+          <span className="text-gold text-lg">+</span>
+        </div>
+      </div>
+      <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 rounded-lg transition-all duration-500" />
+    </div>
+  );
+}
 
 export default function GallerySection() {
   const [selected, setSelected] = useState(null);
@@ -33,29 +97,28 @@ export default function GallerySection() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px] md:auto-rows-[200px]">
-          {galleryImages.map((img, i) => (
-            <AnimatedSection
-              key={i}
-              delay={0.05 * (i + 1)}
-              className={img.span}
-            >
-              <div
-                className="relative w-full h-full rounded-lg overflow-hidden border border-gold/10 cursor-pointer group"
-                onClick={() => setSelected(img)}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-dark-brown/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center">
-                    <span className="text-gold text-lg">+</span>
-                  </div>
-                </div>
-                <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 rounded-lg transition-all duration-500" />
-              </div>
+        {/* Desktop grid */}
+        <div className="hidden md:grid grid-cols-4 gap-3 auto-rows-[200px]">
+          {desktopItems.map((item, i) => (
+            <AnimatedSection key={i} delay={0.04 * (i + 1)} className={item.cls}>
+              {item.type === 'logo' ? (
+                <LogoCell />
+              ) : (
+                <ImgCell item={item} onClick={setSelected} />
+              )}
+            </AnimatedSection>
+          ))}
+        </div>
+
+        {/* Mobile grid */}
+        <div className="grid md:hidden grid-cols-2 gap-3 auto-rows-[160px]">
+          {mobileItems.map((item, i) => (
+            <AnimatedSection key={i} delay={0.04 * (i + 1)} className={item.cls}>
+              {item.type === 'logo' ? (
+                <LogoCell />
+              ) : (
+                <ImgCell item={item} onClick={setSelected} />
+              )}
             </AnimatedSection>
           ))}
         </div>
