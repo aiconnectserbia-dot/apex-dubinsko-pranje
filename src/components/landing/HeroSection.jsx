@@ -110,21 +110,6 @@ export default function HeroSection() {
       {/* Bottom gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark-brown to-transparent" />
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="w-5 h-8 rounded-full border border-gold/30 flex items-start justify-center p-1"
-        >
-          <div className="w-1 h-2 rounded-full bg-gold/50" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }
