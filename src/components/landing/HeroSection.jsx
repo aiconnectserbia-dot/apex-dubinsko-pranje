@@ -3,12 +3,10 @@ import { motion } from 'framer-motion';
 import { Sparkles, Droplets, Shield } from 'lucide-react';
 
 const floatingImages = [
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', style: { top: '5%',  left: '5%',  width: 280, height: 340, rotate: -4 }, delay: 0 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', style: { top: '0%',  left: '38%', width: 220, height: 260, rotate: 2  }, delay: 0.3 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', style: { top: '5%',  right: '4%', width: 260, height: 320, rotate: 3  }, delay: 0.6 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', style: { bottom:'4%', left: '4%', width: 240, height: 290, rotate: -3 }, delay: 0.2 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', style: { bottom:'2%', left: '36%',width: 200, height: 250, rotate: -2 }, delay: 0.5 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', style: { bottom:'3%', right: '3%',width: 260, height: 300, rotate: 4  }, delay: 0.8 },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', style: { top: '8%',  left: '3%',  width: 140, height: 170, rotate: -4 }, delay: 0 },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', style: { top: '6%',  right: '3%', width: 130, height: 160, rotate: 3  }, delay: 0.3 },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', style: { bottom:'8%', left: '3%', width: 150, height: 180, rotate: -3 }, delay: 0.6 },
+  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', style: { bottom:'7%', right: '3%',width: 135, height: 165, rotate: 4  }, delay: 0.2 },
 ];
 
 const droplets = [
