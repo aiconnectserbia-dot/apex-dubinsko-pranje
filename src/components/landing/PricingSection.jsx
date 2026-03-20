@@ -79,11 +79,11 @@ export default function PricingSection() {
 
                 <div className="p-4 md:p-8">
                   {/* Header */}
-                  <div className="flex items-center gap-3 mb-5 pb-4 border-b border-gold/30">
-                    <div className="w-9 h-9 md:w-11 md:h-11 rounded-full border border-gold/40 flex items-center justify-center bg-gold/15 group-hover:bg-gold/25 transition-colors duration-500 flex-shrink-0">
-                      <group.icon size={15} className="text-gold" />
+                  <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gold/30">
+                    <div className="w-10 h-10 md:w-11 md:h-11 rounded-full border border-gold/40 flex items-center justify-center bg-gold/15 group-hover:bg-gold/25 transition-colors duration-500 flex-shrink-0">
+                      <group.icon size={16} className="text-gold" />
                     </div>
-                    <h3 className="font-playfair text-lg md:text-2xl font-semibold text-cream">{group.category}</h3>
+                    <h3 className="font-playfair text-xl md:text-2xl font-semibold text-cream">{group.category}</h3>
                   </div>
 
                   {/* Items */}
