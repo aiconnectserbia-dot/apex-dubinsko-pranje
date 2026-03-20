@@ -29,7 +29,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-gold/5 text-center">
           <p className="font-inter text-cream/25 text-xs">
-            © 2025 APEX Dubinsko Pranje. Sva prava zadržana.
+            © 2026 APEX Dubinsko Pranje. Sva prava zadržana.
           </p>
         </div>
       </div>
