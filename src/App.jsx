@@ -39,6 +39,10 @@ const AuthenticatedApp = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/dubinsko-ciscenje-pancevo" element={<DubinskoCiscenjePancevo />} />
+      <Route path="/ciscenje-namestaja-pancevo" element={<CiscentjeNamestajaPancevo />} />
+      <Route path="/pranje-tepiha-pancevo" element={<PranjeTepiha />} />
+      <Route path="/dubinsko-pranje-kola-pancevo" element={<DubinskoPranjeKola />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
