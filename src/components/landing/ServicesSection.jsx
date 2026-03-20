@@ -32,7 +32,7 @@ const services = [
 
 function ServiceCard({ svc }) {
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-gold/15 bg-gradient-to-br from-secondary/80 to-dark-brown hover:border-gold/40 transition-all duration-500 aspect-square md:aspect-auto">
+    <div className="group relative overflow-hidden rounded-xl border border-gold/15 bg-gradient-to-br from-secondary/80 to-dark-brown hover:border-gold/40 transition-all duration-500 aspect-square md:aspect-auto md:h-72">
       {/* Background image */}
       <div className="absolute inset-0 opacity-20 group-hover:opacity-35 transition-opacity duration-700">
         <img src={svc.image} alt={svc.title} className="w-full h-full object-cover" loading="lazy" />
