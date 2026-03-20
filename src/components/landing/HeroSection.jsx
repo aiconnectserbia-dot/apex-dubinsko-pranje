@@ -56,7 +56,7 @@ export default function HeroSection() {
           className="flex items-center justify-center gap-3 mb-6"
         >
           <div className="h-px w-8 bg-gold/50" />
-          <span className="text-gold/80 text-xs font-inter tracking-[0.25em] uppercase">Premium servis — Pančevo</span>
+          <span className="text-gold/80 text-xs font-inter tracking-[0.25em] uppercase">Dubinsko pranje — Pančevo</span>
           <div className="h-px w-8 bg-gold/50" />
         </motion.div>
 
