@@ -62,9 +62,9 @@ export default function CiscentjeNamestajaPancevo() {
   return (
     <>
       <Helmet>
-        <title>Čišćenje nameštaja Pančevo | APEX – Garniture, dušeci, fotelje</title>
-        <meta name="description" content="Čišćenje nameštaja u Pančevu — garniture, fotelje, dušeci. Dolazak na adresu, fiksne cene, bezbedno za decu. Zakažite termin danas!" />
-        <link rel="canonical" href="https://apex-pranje.rs/ciscenje-namestaja-pancevo" />
+        <title>Dubinsko čišćenje nameštaja Pančevo | APEX</title>
+        <meta name="description" content="Čišćenje nameštaja Pančevo — garniture, fotelje, dušeci. Dolazimo na adresu, fiksne cene, bez skrivenih troškova. Zakažite termin!" />
+        <link rel="canonical" href="https://dubinskopranjeapex.rs/ciscenje-namestaja-pancevo" />
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
