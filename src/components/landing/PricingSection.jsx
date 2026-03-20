@@ -49,7 +49,7 @@ const pricingData = [
 export default function PricingSection() {
   return (
     <section id="cenovnik" className="relative py-24 md:py-32 bg-dark-brown">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <SectionDivider />
           <h2 className="font-playfair text-3xl md:text-5xl font-bold text-cream text-center mt-8 mb-4">
@@ -77,7 +77,7 @@ export default function PricingSection() {
                   <div className="w-px h-full bg-gold -mt-px" />
                 </div>
 
-                <div className="p-8">
+                <div className="p-4 md:p-8">
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-7 pb-5 border-b border-gold/30">
                     <div className="w-11 h-11 rounded-full border border-gold/40 flex items-center justify-center bg-gold/15 group-hover:bg-gold/25 transition-colors duration-500 flex-shrink-0">
