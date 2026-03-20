@@ -79,7 +79,7 @@ export default function PricingSection() {
 
                 <div className="p-8">
                   {/* Header */}
-                  <div className="flex items-center gap-4 mb-7 pb-5 border-b border-gold/10">
+                  <div className="flex items-center gap-4 mb-7 pb-5 border-b border-gold/30">
                     <div className="w-11 h-11 rounded-full border border-gold/25 flex items-center justify-center bg-gold/5 group-hover:bg-gold/10 transition-colors duration-500 flex-shrink-0">
                       <group.icon size={18} className="text-gold" />
                     </div>
