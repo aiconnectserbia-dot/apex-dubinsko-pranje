@@ -21,8 +21,10 @@ const relatedServices = [
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://dubinskopranjeapex.rs/#business",
   "name": "APEX Dubinsko Čišćenje",
-  "url": "https://apex-pranje.rs",
+  "url": "https://dubinskopranjeapex.rs",
+  "inLanguage": "sr",
   "areaServed": "Pančevo",
   "address": {
     "@type": "PostalAddress",
@@ -36,17 +38,19 @@ const serviceSchema = {
   "@type": "Service",
   "name": "Čišćenje nameštaja Pančevo",
   "serviceType": "Čišćenje nameštaja",
+  "inLanguage": "sr",
   "areaServed": "Pančevo",
   "provider": {
     "@type": "LocalBusiness",
     "name": "APEX Dubinsko Čišćenje",
-    "url": "https://apex-pranje.rs"
+    "url": "https://dubinskopranjeapex.rs"
   }
 };
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "inLanguage": "sr",
   "mainEntity": faqs.map(f => ({
     "@type": "Question",
     "name": f.q,
