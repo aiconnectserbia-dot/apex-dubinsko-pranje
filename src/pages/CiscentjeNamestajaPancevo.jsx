@@ -214,7 +214,7 @@ export default function CiscentjeNamestajaPancevo() {
             </p>
             <p className="font-inter text-cream/60 leading-relaxed mb-5">
               Dolazimo na vašu adresu u Pančevu, donosimo svu opremu i završavamo posao bez komplikacija.
-              Cene su fiksne i znate unapred šta plaćate.
+              Za sve klijente u Pančevu, cene su fiksne i znate unapred šta plaćate.
             </p>
             <a
               href="#kontakt"
