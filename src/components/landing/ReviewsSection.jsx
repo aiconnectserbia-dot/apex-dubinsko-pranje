@@ -13,7 +13,7 @@ const reviews = [
   {
     name: 'Sara Marin',
     initials: 'SM',
-    text: 'Konačno pronašla servis koji zaista dubinski opere dušek. Osećaj čistoće je neverovatаn. Definitivno se vraćam!'
+    text: 'Konačno pronašla servis koji zaista dubinski opere dušek. Osećaj čistoće je neverovatаn. Definitivno ću ih ponovo pozvati!'
   },
   {
     name: 'Mateja Pavlović',
