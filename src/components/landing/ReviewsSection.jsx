@@ -64,9 +64,15 @@ export default function ReviewsSection() {
                 </p>
 
                 <div className="flex items-center gap-3 pt-4 border-t border-gold/10">
-                  <div className="w-10 h-10 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center">
-                    <span className="text-gold font-playfair text-sm font-semibold">{review.initials}</span>
-                  </div>
+                  {review.avatar ? (
+                    <img src={review.avatar} alt={review.name} className="w-10 h-10 rounded-full object-cover border border-gold/30" />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-[#b0b3b8] border border-gold/20 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#f5f5f5" className="w-6 h-6">
+                        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                      </svg>
+                    </div>
+                  )}
                   <span className="font-inter text-cream/80 text-sm font-medium">{review.name}</span>
                 </div>
               </div>
