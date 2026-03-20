@@ -55,7 +55,7 @@ function ServiceCard({ svc }) {
 
 export default function ServicesSection() {
   return (
-    <section id="usluge" className="relative py-16 md:py-32 bg-dark-brown">
+    <section id="usluge" className="relative py-16 md:py-32" style={{background: 'linear-gradient(180deg, #120700 0%, #1c0d03 50%, #0f0500 100%)'}}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <SectionDivider />

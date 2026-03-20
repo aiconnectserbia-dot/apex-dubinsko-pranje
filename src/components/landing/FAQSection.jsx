@@ -29,7 +29,7 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="relative py-24 md:py-32 bg-dark-brown">
+    <section id="faq" className="relative py-24 md:py-32 bg-[#0f0600]">
       <div className="max-w-3xl mx-auto px-6">
         <AnimatedSection>
           <SectionDivider />

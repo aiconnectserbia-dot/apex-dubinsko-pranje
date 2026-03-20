@@ -88,7 +88,7 @@ export default function ReviewsSection() {
   }, []);
 
   return (
-    <section id="recenzije" className="relative py-24 md:py-32 bg-dark-brown overflow-hidden">
+    <section id="recenzije" className="relative py-24 md:py-32 overflow-hidden" style={{background: 'linear-gradient(180deg, #0d0601 0%, #1a0b02 50%, #0a0400 100%)'}}>
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <SectionDivider />

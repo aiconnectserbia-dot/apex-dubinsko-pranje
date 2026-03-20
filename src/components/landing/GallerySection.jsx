@@ -90,7 +90,7 @@ export default function GallerySection() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="galerija" className="relative py-16 md:py-32 bg-dark-brown">
+    <section id="galerija" className="relative py-16 md:py-32" style={{background: 'linear-gradient(180deg, #0a0400 0%, #110600 100%)'}}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <SectionDivider />

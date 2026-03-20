@@ -23,7 +23,7 @@ const features = [
 
 export default function AboutSection() {
   return (
-    <section id="o-nama" className="relative py-20 md:py-32 bg-dark-brown">
+    <section id="o-nama" className="relative py-20 md:py-32" style={{background: 'linear-gradient(180deg, #0a0400 0%, #160800 60%, #0f0600 100%)'}}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <AnimatedSection>
           <SectionDivider />
