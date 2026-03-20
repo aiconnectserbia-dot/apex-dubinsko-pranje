@@ -48,7 +48,7 @@ export default function AboutSection() {
                 </div>
                 <div>
                   <h3 className="font-playfair text-base sm:text-lg font-semibold text-cream sm:mb-2">{feat.title}</h3>
-                  <p className="font-inter text-cream/45 text-xs sm:text-sm leading-relaxed sm:block">{feat.desc}</p>
+                  <p className="font-inter text-cream/60 text-xs sm:text-sm leading-relaxed sm:block">{feat.desc}</p>
                 </div>
               </div>
             </AnimatedSection>
