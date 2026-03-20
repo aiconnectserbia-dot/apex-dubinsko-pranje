@@ -48,7 +48,7 @@ const pricingData = [
 
 export default function PricingSection() {
   return (
-    <section id="cenovnik" className="relative py-24 md:py-32 bg-dark-brown">
+    <section id="cenovnik" className="relative py-24 md:py-32" style={{background: 'linear-gradient(160deg, #1e0e03 0%, #2a1506 30%, #1a0a00 70%, #0f0500 100%)'}}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <SectionDivider />
