@@ -79,11 +79,11 @@ export default function PricingSection() {
 
                 <div className="p-4 md:p-8">
                   {/* Header */}
-                  <div className="flex items-center gap-4 mb-7 pb-5 border-b border-gold/30">
-                    <div className="w-11 h-11 rounded-full border border-gold/40 flex items-center justify-center bg-gold/15 group-hover:bg-gold/25 transition-colors duration-500 flex-shrink-0">
-                      <group.icon size={18} className="text-gold" />
+                  <div className="flex items-center gap-3 mb-5 pb-4 border-b border-gold/30">
+                    <div className="w-9 h-9 md:w-11 md:h-11 rounded-full border border-gold/40 flex items-center justify-center bg-gold/15 group-hover:bg-gold/25 transition-colors duration-500 flex-shrink-0">
+                      <group.icon size={15} className="text-gold" />
                     </div>
-                    <h3 className="font-playfair text-2xl font-semibold text-cream">{group.category}</h3>
+                    <h3 className="font-playfair text-lg md:text-2xl font-semibold text-cream">{group.category}</h3>
                   </div>
 
                   {/* Items */}
@@ -95,9 +95,9 @@ export default function PricingSection() {
                       >
                         <div className="flex items-center gap-3">
                           <div className="w-1 h-1 rounded-full bg-gold/30 group-hover/row:bg-gold/60 transition-colors duration-300 flex-shrink-0" />
-                          <span className="font-inter text-cream/60 text-sm group-hover/row:text-cream transition-colors duration-300">{item.name}</span>
+                          <span className="font-inter text-cream/60 text-xs md:text-sm group-hover/row:text-cream transition-colors duration-300">{item.name}</span>
                         </div>
-                        <span className="font-inter text-gold font-semibold text-sm whitespace-nowrap ml-4 tabular-nums">{item.price}</span>
+                        <span className="font-inter text-gold font-semibold text-xs md:text-sm whitespace-nowrap ml-2 tabular-nums">{item.price}</span>
                       </div>
                     ))}
                   </div>
