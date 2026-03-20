@@ -60,7 +60,7 @@ export default function PricingSection() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5">
           {pricingData.map((group, i) => (
             <AnimatedSection key={group.category} delay={0.1 * (i + 1)}>
               <div className="group relative overflow-hidden rounded-xl border border-gold/20 bg-gradient-to-br from-[#2a1506] to-[#1a0a00] hover:border-gold/50 transition-all duration-500 h-full">
