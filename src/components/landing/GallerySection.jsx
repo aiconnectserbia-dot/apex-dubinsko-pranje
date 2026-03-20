@@ -35,32 +35,36 @@ const desktop = [
   { img: imgs[1],  style: { gridColumn: '3 / 5', gridRow: '5' } },
 ];
 
-// Mobile grid — 3 columns, smaller rows, cleaner layout
+// Mobile: 3×3 grid around centered logo square
+// Layout:
+// [img0][img1][img2]
+// [img3][LOGO][img4]
+// [img5][img6][img7]
+// [img8 wide ][img9]
 const mobile = [
-  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1' } },       // wide top
-  { img: imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },        // tall right
-  { img: imgs[2],  style: { gridColumn: '1',     gridRow: '2' } },
-  { img: imgs[3],  style: { gridColumn: '2',     gridRow: '2' } },
-  { img: imgs[4],  style: { gridColumn: '3',     gridRow: '2' } },
-  { logo: true,    style: { gridColumn: '1 / 4', gridRow: '3' } },        // logo full width
-  { img: imgs[5],  style: { gridColumn: '1',     gridRow: '4' } },
-  { img: imgs[6],  style: { gridColumn: '2',     gridRow: '4' } },
-  { img: imgs[7],  style: { gridColumn: '3',     gridRow: '4' } },
-  { img: imgs[8],  style: { gridColumn: '1 / 3', gridRow: '5' } },        // wide
-  { img: imgs[9],  style: { gridColumn: '3',     gridRow: '5' } },
-  { img: imgs[10], style: { gridColumn: '1 / 4', gridRow: '6' } },        // wide bottom
+  { img: imgs[0],  style: { gridColumn: '1', gridRow: '1' } },
+  { img: imgs[2],  style: { gridColumn: '2', gridRow: '1' } },
+  { img: imgs[3],  style: { gridColumn: '3', gridRow: '1' } },
+  { img: imgs[4],  style: { gridColumn: '1', gridRow: '2' } },
+  { logo: true,    style: { gridColumn: '2', gridRow: '2' } },
+  { img: imgs[5],  style: { gridColumn: '3', gridRow: '2' } },
+  { img: imgs[6],  style: { gridColumn: '1', gridRow: '3' } },
+  { img: imgs[7],  style: { gridColumn: '2', gridRow: '3' } },
+  { img: imgs[8],  style: { gridColumn: '3', gridRow: '3' } },
+  { img: imgs[9],  style: { gridColumn: '1 / 3', gridRow: '4' } },
+  { img: imgs[10], style: { gridColumn: '3', gridRow: '4' } },
 ];
 
 function LogoCell() {
   return (
-    <div className="relative w-full h-full rounded-lg border border-gold/20 bg-gradient-to-br from-[#1a0a00] to-[#0f0500] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-full rounded-lg border border-gold/30 bg-gradient-to-br from-[#1e0d02] to-[#0d0400] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-32 h-32 rounded-full bg-gold/8 blur-3xl" />
+        <div className="w-24 h-24 rounded-full bg-gold/10 blur-2xl" />
       </div>
       <img
         src="https://media.base44.com/images/public/69bc11715588f1a8620fc5f8/58d5bf28d_Photoroom_20260319_164513.PNG"
         alt="APEX Dubinsko Pranje logo"
-        className="relative z-10 w-1/2 md:w-3/4 h-3/4 object-contain drop-shadow-lg"
+        className="relative z-10 w-4/5 h-4/5 object-contain drop-shadow-lg"
       />
     </div>
   );
@@ -114,10 +118,10 @@ export default function GallerySection() {
           ))}
         </div>
 
-        {/* Mobile grid — 3 columns, tighter rows */}
+        {/* Mobile grid — 3 columns, logo in center square, equal cells */}
         <div
           className="grid md:hidden gap-2"
-          style={{ gridTemplateColumns: 'repeat(3, 1fr)', gridAutoRows: '90px' }}
+          style={{ gridTemplateColumns: 'repeat(3, 1fr)', gridAutoRows: '110px' }}
         >
           {mobile.map((item, i) => (
             <div key={i} style={item.style}>

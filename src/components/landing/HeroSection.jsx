@@ -22,37 +22,42 @@ export default function HeroSection() {
       {/* ── MOBILE LAYOUT ── */}
       <div className="flex flex-col md:hidden min-h-screen">
 
-        {/* Top image — full bleed, dimmed */}
-        <div className="relative w-full h-52 flex-shrink-0">
+        {/* Full-bleed background image with strong gradient overlay */}
+        <div className="absolute inset-0">
           <img
             src={bgImages[0]}
             alt="Dubinsko pranje"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark-brown/60 via-dark-brown/30 to-dark-brown" />
+          {/* Dark gradient — heavy at top (navbar area) and bottom, lighter in middle */}
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(180deg, rgba(10,4,0,0.92) 0%, rgba(10,4,0,0.55) 35%, rgba(10,4,0,0.70) 65%, rgba(10,4,0,0.97) 100%)'
+          }} />
+          {/* Subtle warm tint */}
+          <div className="absolute inset-0 bg-[#3d1a00]/20" />
         </div>
 
-        {/* Text content */}
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-start px-6 pt-6 pb-8 text-center">
+        {/* Text content — centered vertically */}
+        <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-7 py-28 text-center">
 
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-2 mb-4"
+            className="flex items-center gap-3 mb-6"
           >
-            <div className="h-px w-6 bg-gold/50" />
-            <span className="text-gold/80 text-[10px] font-inter tracking-[0.28em] uppercase">Dubinsko pranje — Pančevo</span>
-            <div className="h-px w-6 bg-gold/50" />
+            <div className="h-px w-8 bg-gold/60" />
+            <span className="text-gold/90 text-[10px] font-inter tracking-[0.3em] uppercase">Dubinsko pranje — Pančevo</span>
+            <div className="h-px w-8 bg-gold/60" />
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="font-playfair font-bold text-cream leading-[1.1] mb-4"
-            style={{ fontSize: 'clamp(2.2rem, 10vw, 3rem)' }}
+            className="font-playfair font-bold text-cream leading-[1.08] mb-6"
+            style={{ fontSize: 'clamp(2.4rem, 11vw, 3.2rem)' }}
           >
             Čistoća na{' '}
             <span className="text-gold italic">najvišem</span>{' '}
@@ -63,7 +68,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="font-inter text-cream/55 text-sm leading-relaxed mb-7 max-w-xs mx-auto"
+            className="font-inter text-cream/65 text-sm leading-relaxed mb-10 max-w-[280px] mx-auto"
           >
             Profesionalno dubinsko pranje nameštaja, tepiha i automobila — dolazimo na vašu adresu
           </motion.p>
@@ -72,17 +77,17 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.65 }}
-            className="flex flex-col gap-3 w-full max-w-xs"
+            className="flex flex-col gap-3 w-full max-w-[260px]"
           >
             <a
               href="#kontakt"
-              className="text-center py-4 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light transition-all duration-300"
+              className="text-center py-4 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/20"
             >
               Zatražite termin
             </a>
             <a
               href="#cenovnik"
-              className="text-center py-3.5 border border-gold/40 text-gold font-inter text-sm tracking-wider uppercase rounded-sm bg-gold/5 hover:bg-gold/15 transition-all duration-300"
+              className="text-center py-3.5 border border-gold/50 text-gold font-inter text-sm tracking-wider uppercase rounded-sm bg-gold/8 backdrop-blur-sm hover:bg-gold/15 transition-all duration-300"
             >
               Pogledajte cene
             </a>
@@ -92,31 +97,20 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.85 }}
-            className="mt-8 flex items-center justify-center gap-5 flex-wrap"
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="mt-12 flex items-center justify-center gap-6 flex-wrap"
           >
             {badges.map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-1.5 text-cream/35">
-                <Icon size={12} className="text-gold/50" />
-                <span className="text-[10px] font-inter tracking-wide">{text}</span>
+              <div key={text} className="flex items-center gap-1.5 text-cream/45">
+                <Icon size={12} className="text-gold/60" />
+                <span className="text-[11px] font-inter tracking-wide">{text}</span>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Bottom image strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.0 }}
-          className="flex gap-2 px-4 pb-8"
-        >
-          {bgImages.slice(1).map((src, i) => (
-            <div key={i} className="flex-1 rounded-lg overflow-hidden border border-gold/15" style={{ height: 72 }}>
-              <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-          ))}
-        </motion.div>
+        {/* Bottom fade to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-dark-brown to-transparent z-10" />
       </div>
 
       {/* ── DESKTOP LAYOUT (unchanged) ── */}
