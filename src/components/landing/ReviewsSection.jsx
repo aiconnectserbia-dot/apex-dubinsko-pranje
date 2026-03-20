@@ -7,6 +7,7 @@ const reviews = [
   {
     name: 'Mateja Nikolić',
     initials: 'MN',
+    avatar: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=80&h=80&fit=crop&crop=face',
     text: 'Neverovatna transformacija ugaone garniture! Izgledala je kao nova posle pranja. Brzi, profesionalni, preporučujem svima!'
   },
   {
@@ -17,11 +18,13 @@ const reviews = [
   {
     name: 'Mateja Pavlović',
     initials: 'MP',
+    avatar: 'https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?w=80&h=80&fit=crop&crop=face',
     text: 'Auto enterijer je bio katastrofa, izašao kao iz salona. Cena je više nego poštena za ovaj kvalitet.'
   },
   {
     name: 'Mirko Stepić',
     initials: 'MS',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face',
     text: 'Pranje tepiha na visokom nivou. Ekipa je tačna, ljubazna i pedantna. Preporučujem APEX bez rezerve.'
   },
   {
