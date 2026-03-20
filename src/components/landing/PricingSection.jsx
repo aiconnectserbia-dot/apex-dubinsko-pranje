@@ -95,7 +95,7 @@ export default function PricingSection() {
                       >
                         <div className="flex items-center gap-3">
                           <div className="w-1 h-1 rounded-full bg-gold/30 group-hover/row:bg-gold/60 transition-colors duration-300 flex-shrink-0" />
-                          <span className="font-inter text-dark-brown/70 text-sm group-hover/row:text-dark-brown transition-colors duration-300">{item.name}</span>
+                          <span className="font-inter text-cream/60 text-sm group-hover/row:text-cream transition-colors duration-300">{item.name}</span>
                         </div>
                         <span className="font-inter text-gold font-semibold text-sm whitespace-nowrap ml-4 tabular-nums">{item.price}</span>
                       </div>
