@@ -72,10 +72,6 @@ export default function SEOServicesSection() {
                 className="group relative flex flex-col h-full overflow-hidden rounded-xl border border-gold/20 bg-gradient-to-br from-[#1f0d02] to-[#0d0400] p-4 md:p-7 hover:border-gold/50 transition-all duration-400 hover:shadow-lg hover:shadow-gold/10"
               >
                 {/* Big number watermark */}
-                <span className="absolute top-3 right-4 font-playfair text-5xl md:text-6xl font-bold text-gold/5 group-hover:text-gold/10 transition-colors duration-500 select-none leading-none">
-                  {s.num}
-                </span>
-
                 {/* Top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
