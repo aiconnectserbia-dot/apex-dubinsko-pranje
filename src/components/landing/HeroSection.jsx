@@ -113,40 +113,37 @@ export default function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-dark-brown to-transparent z-10" />
       </div>
 
-      {/* ── DESKTOP LAYOUT (unchanged) ── */}
+      {/* ── DESKTOP LAYOUT ── */}
       <div className="hidden md:flex min-h-screen flex-col items-center justify-center relative">
 
-        {/* Corner images */}
-        <div className="absolute top-6 left-6 w-44 h-60 rounded-xl overflow-hidden border border-gold/10" style={{transform:'rotate(-3deg)', opacity: 0.9}}>
-          <img src={bgImages[0]} alt="" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-dark-brown/75" />
-        </div>
-        <div className="absolute top-6 right-6 w-40 h-56 rounded-xl overflow-hidden border border-gold/10" style={{transform:'rotate(3deg)', opacity: 0.9}}>
-          <img src={bgImages[1]} alt="" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-dark-brown/75" />
-        </div>
-        <div className="absolute bottom-16 left-6 w-40 h-56 rounded-xl overflow-hidden border border-gold/10" style={{transform:'rotate(2deg)', opacity: 0.9}}>
-          <img src={bgImages[2]} alt="" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-dark-brown/75" />
-        </div>
-        <div className="absolute bottom-16 right-6 w-44 h-60 rounded-xl overflow-hidden border border-gold/10" style={{transform:'rotate(-2deg)', opacity: 0.9}}>
-          <img src={bgImages[3]} alt="" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-dark-brown/75" />
+        {/* Background photo collage — 2x2 grid covering full hero */}
+        <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+          {bgImages.map((src, i) => (
+            <div key={i} className="relative overflow-hidden">
+              <img src={src} alt="" className="w-full h-full object-cover" loading={i === 0 ? 'eager' : 'lazy'} />
+            </div>
+          ))}
         </div>
 
-        {/* Vignette */}
+        {/* Dark overlay — strong center fade so text is readable, slight vignette */}
         <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(10,4,0,0.1) 0%, rgba(10,4,0,0.7) 65%, rgba(10,4,0,0.97) 100%)'
+          background: 'linear-gradient(180deg, rgba(10,4,0,0.88) 0%, rgba(10,4,0,0.70) 30%, rgba(10,4,0,0.72) 70%, rgba(10,4,0,0.92) 100%)'
         }} />
+        {/* Center radial darkening behind text */}
+        <div className="absolute inset-0" style={{
+          background: 'radial-gradient(ellipse 55% 65% at 50% 50%, rgba(10,4,0,0.55) 0%, rgba(10,4,0,0.0) 100%)'
+        }} />
+        {/* Warm brown tint */}
+        <div className="absolute inset-0 bg-[#3d1a00]/25" />
 
-        {/* Grid */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
+        {/* Subtle grid texture */}
+        <div className="absolute inset-0 opacity-[0.025]" style={{
           backgroundImage: 'linear-gradient(rgba(201,168,76,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.4) 1px, transparent 1px)',
           backgroundSize: '60px 60px'
         }} />
 
-        {/* Glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-gold/5 blur-[80px]" />
+        {/* Gold center glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-gold/8 blur-[90px] pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-10 text-center px-5 w-full max-w-2xl mx-auto">
