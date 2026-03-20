@@ -2,101 +2,70 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Droplets, Shield } from 'lucide-react';
 
-const floatingImages = [
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', style: { top: '8%',  left: '3%',  width: 140, height: 170, rotate: -4 }, delay: 0 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', style: { top: '6%',  right: '3%', width: 130, height: 160, rotate: 3  }, delay: 0.3 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', style: { bottom:'8%', left: '3%', width: 150, height: 180, rotate: -3 }, delay: 0.6 },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', style: { bottom:'7%', right: '3%',width: 135, height: 165, rotate: 4  }, delay: 0.2 },
+const bgImages = [
+  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg',
+  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg',
+  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg',
+  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg',
 ];
 
-const droplets = [
-  { size: 5, top: '20%', left: '22%',  delay: 0,   dur: 5 },
-  { size: 3, top: '30%', right: '20%', delay: 1.2, dur: 4.5 },
-  { size: 6, top: '65%', left: '15%',  delay: 2,   dur: 4 },
-  { size: 4, top: '72%', right: '16%', delay: 0.6, dur: 5.5 },
-  { size: 3, top: '40%', left: '42%',  delay: 1.8, dur: 6 },
+// Mosaic grid positions — 2x2 behind content, slightly offset for depth
+const mosaic = [
+  { src: bgImages[0], top: '5%',    left: '8%',   width: 200, height: 260, rotate: -3 },
+  { src: bgImages[1], top: '5%',    right: '8%',  width: 180, height: 240, rotate: 3  },
+  { src: bgImages[2], bottom: '6%', left: '8%',   width: 190, height: 250, rotate: 2  },
+  { src: bgImages[3], bottom: '6%', right: '8%',  width: 195, height: 255, rotate: -2 },
 ];
 
 export default function HeroSection() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
+      {/* Base background */}
       <div className="absolute inset-0 bg-dark-brown" />
 
-      {/* Floating business photos — positioned as background behind content */}
-      <div className="hidden md:block">
-        {floatingImages.map((img, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: [0, -6, 0] }}
-            transition={{
-              opacity: { duration: 1.5, delay: img.delay },
-              y: { duration: 6 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: img.delay }
-            }}
-            className="absolute rounded-xl overflow-hidden border border-gold/15 shadow-2xl shadow-black/60"
-            style={{
-              top: img.style.top,
-              left: img.style.left,
-              right: img.style.right,
-              bottom: img.style.bottom,
-              width: img.style.width,
-              height: img.style.height,
-              rotate: `${img.style.rotate}deg`,
-              zIndex: 0,
-            }}
-          >
-            <img src={img.src} alt="" className="w-full h-full object-cover" />
-            {/* Heavy dark overlay so they don't compete with text */}
-            <div className="absolute inset-0 bg-dark-brown/75" />
-            {/* Subtle gold tint */}
-            <div className="absolute inset-0 bg-gold/5" />
-          </motion.div>
-        ))}
-      </div>
+      {/* Mosaic background images */}
+      {mosaic.map((img, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4, delay: i * 0.2 }}
+          className="absolute rounded-2xl overflow-hidden border border-gold/10"
+          style={{
+            top: img.top,
+            left: img.left,
+            right: img.right,
+            bottom: img.bottom,
+            width: img.width,
+            height: img.height,
+            rotate: `${img.rotate}deg`,
+          }}
+        >
+          <img src={img.src} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-dark-brown/80" />
+        </motion.div>
+      ))}
 
-      {/* Central radial glow on top of images */}
-      <div className="absolute inset-0 z-[1]" style={{
-        background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(10,4,0,0) 30%, rgba(10,4,0,0.85) 100%)'
+      {/* Vignette — darkens edges and center-clears for text readability */}
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse 55% 55% at 50% 50%, rgba(10,4,0,0.15) 0%, rgba(10,4,0,0.75) 70%, rgba(10,4,0,0.95) 100%)'
       }} />
 
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 z-[1] opacity-[0.025]" style={{
+      {/* Subtle grid */}
+      <div className="absolute inset-0 opacity-[0.025]" style={{
         backgroundImage: 'linear-gradient(rgba(201,168,76,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.3) 1px, transparent 1px)',
         backgroundSize: '60px 60px'
       }} />
 
-      {/* Gold center glow */}
-      <div className="absolute z-[1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/6 blur-[100px]" />
-
-      {/* Floating droplet particles */}
-      {droplets.map((d, i) => (
-        <motion.div
-          key={i}
-          className="absolute z-[2] rounded-full bg-gold/25 blur-[1px]"
-          style={{ width: d.size, height: d.size, top: d.top, left: d.left, right: d.right }}
-          animate={{ y: [0, -16, 0], opacity: [0.15, 0.5, 0.15] }}
-          transition={{ duration: d.dur, repeat: Infinity, ease: 'easeInOut', delay: d.delay }}
-        />
-      ))}
-
-      {/* Water ripple rings */}
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={i}
-          className="absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/8"
-          initial={{ width: 80, height: 80, opacity: 0.25 }}
-          animate={{ width: 600, height: 600, opacity: 0 }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeOut', delay: i * 1.7 }}
-        />
-      ))}
+      {/* Soft gold center glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-gold/5 blur-[100px]" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="flex items-center justify-center gap-3 mb-8"
         >
           <div className="h-px w-12 bg-gold/50" />
@@ -107,7 +76,7 @@ export default function HeroSection() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           className="font-playfair text-4xl sm:text-5xl md:text-7xl font-bold text-cream leading-tight mb-6"
         >
           Čistoća na{' '}
@@ -118,7 +87,7 @@ export default function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
           className="font-inter text-cream/60 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Profesionalno dubinsko pranje nameštaja, tepiha i automobila — Pančevo
@@ -127,18 +96,19 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
             href="#kontakt"
-            className="px-10 py-4 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20 transition-all duration-300"
+            className="group relative px-10 py-4 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gold/25"
           >
-            Zatražite termin
+            <span className="relative z-10">Zatražite termin</span>
+            <div className="absolute inset-0 bg-gold-light opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           <a
             href="#cenovnik"
-            className="px-10 py-4 border border-gold/30 text-gold font-inter text-sm tracking-wider uppercase rounded-sm hover:bg-gold/10 transition-all duration-300"
+            className="group px-10 py-4 border border-gold/40 text-gold font-inter text-sm tracking-wider uppercase rounded-sm backdrop-blur-sm bg-gold/5 hover:bg-gold/15 hover:border-gold/70 transition-all duration-300"
           >
             Pogledajte cene
           </a>
@@ -153,7 +123,7 @@ export default function HeroSection() {
         >
           {[
             { icon: Sparkles, text: 'Dubinsko čišćenje' },
-            { icon: Shield, text: 'Bezbedno za decu' },
+            { icon: Shield,   text: 'Bezbedno za decu' },
             { icon: Droplets, text: 'Uklanja 99% bakterija' },
           ].map(({ icon: Icon, text }) => (
             <div key={text} className="flex items-center gap-2 text-cream/40">
@@ -165,7 +135,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-brown to-transparent z-[3]" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-brown to-transparent" />
     </section>
   );
 }
