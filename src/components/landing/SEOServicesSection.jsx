@@ -8,28 +8,28 @@ const services = [
   {
     icon: Sofa,
     title: 'Dubinsko čišćenje',
-    desc: 'Garniture, fotelje, stolice i dušeci — dubinski opramo sve vrste nameštaja u vašem domu.',
+    shortDesc: 'Nameštaj, garniture, dušeci',
     path: '/dubinsko-ciscenje-pancevo',
     label: 'Dubinsko čišćenje Pančevo',
   },
   {
     icon: BedDouble,
     title: 'Čišćenje nameštaja',
-    desc: 'Profesionalno pranje garnitura, dvoseda, troseda i ugaonih garnitura uz dolazak na adresu.',
+    shortDesc: 'Garniture, dvosedi, ugaone',
     path: '/ciscenje-namestaja-pancevo',
     label: 'Čišćenje nameštaja Pančevo',
   },
   {
     icon: Layers,
     title: 'Pranje tepiha',
-    desc: 'Dubinsko pranje svih vrsta tepiha — sintetički, vuneni, orijentalni. Od 450 din/m².',
+    shortDesc: 'Od 450 din/m²',
     path: '/pranje-tepiha-pancevo',
     label: 'Pranje tepiha Pančevo',
   },
   {
     icon: Car,
-    title: 'Dubinsko pranje kola',
-    desc: 'Kompletan tretman enterijera automobila — sedišta, tepisi, tabla. Dolazimo na vašu lokaciju.',
+    title: 'Pranje kola',
+    shortDesc: 'Enterijer, sedišta, tepisi',
     path: '/dubinsko-pranje-kola-pancevo',
     label: 'Dubinsko pranje kola Pančevo',
   },
@@ -37,15 +37,15 @@ const services = [
 
 export default function SEOServicesSection() {
   return (
-    <section className="relative py-20 bg-dark-brown">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="relative py-16 md:py-20 bg-dark-brown">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <SectionDivider />
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold text-cream text-center mt-8 mb-4">
+          <h2 className="font-playfair text-3xl md:text-4xl font-bold text-cream text-center mt-8 mb-3">
             Sve usluge u <span className="text-gold italic">Pančevu</span>
           </h2>
-          <p className="font-inter text-cream/50 text-center text-sm mb-12">
-            Profesionalno dubinsko čišćenje — dolazimo na vašu adresu
+          <p className="font-inter text-cream/50 text-center text-xs sm:text-sm mb-10">
+            Dolazimo na vašu adresu
           </p>
         </AnimatedSection>
 
@@ -55,14 +55,14 @@ export default function SEOServicesSection() {
               <Link
                 to={s.path}
                 aria-label={s.label}
-                className="group flex flex-col h-full border border-gold/15 rounded-xl bg-secondary/30 p-6 hover:border-gold/40 hover:bg-secondary/50 transition-all duration-400"
+                className="group flex flex-col items-center text-center h-full border border-gold/15 rounded-xl bg-secondary/20 p-5 md:p-6 hover:border-gold/40 hover:bg-secondary/40 transition-all duration-400"
               >
-                <div className="w-11 h-11 rounded-full border border-gold/30 flex items-center justify-center mb-5 group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-300">
-                  <s.icon size={18} className="text-gold" />
+                <div className="w-11 h-11 rounded-full border border-gold/30 flex items-center justify-center mb-3 group-hover:border-gold/60 group-hover:bg-gold/10 transition-all duration-300 flex-shrink-0">
+                  <s.icon size={17} className="text-gold" />
                 </div>
-                <h3 className="font-playfair text-lg font-semibold text-cream mb-2">{s.title}</h3>
-                <p className="font-inter text-cream/50 text-xs leading-relaxed flex-1 mb-4">{s.desc}</p>
-                <span className="font-inter text-gold text-xs tracking-wide group-hover:underline underline-offset-4 transition-all">
+                <h3 className="font-playfair text-sm md:text-base font-semibold text-cream mb-1 leading-tight">{s.title}</h3>
+                <p className="font-inter text-cream/40 text-[11px] leading-relaxed mb-3">{s.shortDesc}</p>
+                <span className="font-inter text-gold text-[10px] tracking-wide mt-auto group-hover:underline underline-offset-4 transition-all">
                   Saznajte više →
                 </span>
               </Link>

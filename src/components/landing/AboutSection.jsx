@@ -7,46 +7,49 @@ const features = [
   {
     icon: Trophy,
     title: 'Profesionalna oprema',
-    desc: 'Koristimo Kärcher profesionalne mašine za dubinsko pranje'
+    desc: 'Kärcher mašine za dubinsko pranje'
   },
   {
     icon: Sparkles,
     title: 'Dubinsko čišćenje',
-    desc: 'Prodiremo duboko u vlakna i uklanjamo svu prljavštinu'
+    desc: 'Prodiremo u vlakna i uklanjamo prljavštinu'
   },
   {
     icon: ShieldCheck,
     title: 'Bezbedno za sve',
-    desc: 'Sredstva bezbedna za decu i kućne ljubimce'
+    desc: 'Sredstva sigurna za decu i ljubimce'
   },
 ];
 
 export default function AboutSection() {
   return (
-    <section id="o-nama" className="relative py-24 md:py-32 bg-dark-brown">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="o-nama" className="relative py-20 md:py-32 bg-dark-brown">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <AnimatedSection>
           <SectionDivider />
-          <h2 className="font-playfair text-3xl md:text-5xl font-bold text-cream text-center mt-8 mb-6">
+          <h2 className="font-playfair text-3xl md:text-5xl font-bold text-cream text-center mt-8 mb-5">
             O <span className="text-gold italic">nama</span>
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.15}>
-          <p className="font-inter text-cream/60 text-center max-w-3xl mx-auto leading-relaxed text-base md:text-lg mb-16">
-            APEX je premium servis dubinskog pranja iz Pančeva. Koristimo profesionalnu opremu i sredstva koja prodiru duboko u vlakna, uklanjaju prljavštinu, bakterije i neprijatne mirise — ostavljajući vaš nameštaj, tepih i auto enterijer kao nov. Radimo sa strašću prema čistoći i posvećenošću svakom detalju.
+          <p className="font-inter text-cream/55 text-center max-w-2xl mx-auto leading-relaxed text-sm md:text-base mb-12">
+            APEX je servis dubinskog pranja iz Pančeva. Koristimo profesionalnu opremu koja prodire duboko u vlakna, uklanja prljavštinu, bakterije i neprijatne mirise — vraćajući vaš nameštaj, tepih i auto enterijer u prvobitno stanje.
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+        {/* Feature cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
           {features.map((feat, i) => (
             <AnimatedSection key={feat.title} delay={0.1 * (i + 1)}>
-              <div className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full border border-gold/30 flex items-center justify-center group-hover:border-gold/60 group-hover:bg-gold/5 transition-all duration-500">
-                  <feat.icon size={24} className="text-gold" />
+              <div className="group flex flex-row sm:flex-col items-center sm:text-center gap-4 sm:gap-0 border border-gold/10 rounded-xl bg-secondary/20 p-5 sm:p-8 hover:border-gold/30 transition-all duration-400">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 sm:mx-auto sm:mb-5 rounded-full border border-gold/30 flex items-center justify-center flex-shrink-0 group-hover:border-gold/60 group-hover:bg-gold/5 transition-all duration-400">
+                  <feat.icon size={20} className="text-gold" />
                 </div>
-                <h3 className="font-playfair text-xl font-semibold text-cream mb-3">{feat.title}</h3>
-                <p className="font-inter text-cream/50 text-sm leading-relaxed">{feat.desc}</p>
+                <div>
+                  <h3 className="font-playfair text-base sm:text-lg font-semibold text-cream sm:mb-2">{feat.title}</h3>
+                  <p className="font-inter text-cream/45 text-xs sm:text-sm leading-relaxed hidden sm:block">{feat.desc}</p>
+                </div>
               </div>
             </AnimatedSection>
           ))}

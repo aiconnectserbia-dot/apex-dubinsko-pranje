@@ -18,25 +18,7 @@ const imgs = [
   { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/47204fc99_IMG_4434.jpg', alt: 'Tepih dubinsko pranje' },
 ];
 
-// Desktop: 4 kolone, 5 redova po 180px
-// Svaka slika pojavljuje se JEDANPUT, mešavina kvadrata, horizontalnih i vertikalnih pravougaonika
-// Logo je 2×1 (srednja širina, jedan red) — okružen slikama
-//
-// Vizualni raspored:
-// Col:  1          2        3       4
-// R1: [0 ─────────]        [1]     [2]
-// R2: [0 ─────────]        [3]     [4]
-// R3: [5]         [LOGO ───────]   [6]
-// R4: [7 │]       [8]      [9 ──────]
-// R5: [7 │]       [10]     [9 ──────]  ← 9 spans 2 rows? no, keep simple
-//
-// Revised (clean, no row ambiguity):
-// R1: [0 col1-2 row1-2]   [1 col3 r1]  [2 col4 r1]
-// R2: [0 spans]           [3 col3 r2]  [4 col4 r2]
-// R3: [5 col1 r3]   [LOGO col2-3 r3]  [6 col4 r3]
-// R4: [7 col1 r4-5] [8 col2 r4]  [9 col3-4 r4]
-// R5: [7 spans]     [10 col2 r5] [11 col3-4 r5] — but we only have 11 imgs (0-10), so col3-4 r5 = img4 (reused once is ok if needed, use img3 instead which appeared only in r2)
-
+// Desktop grid — UNCHANGED
 const desktop = [
   { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1 / 3' } },
   { img: imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },
@@ -53,20 +35,20 @@ const desktop = [
   { img: imgs[1],  style: { gridColumn: '3 / 5', gridRow: '5' } },
 ];
 
-// Mobile: 2 kolone, 8 redova po 140px — sve jedinstvene slike
+// Mobile grid — 3 columns, smaller rows, cleaner layout
 const mobile = [
-  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1' } },
-  { img: imgs[1],  style: { gridColumn: '1',     gridRow: '2' } },
-  { img: imgs[2],  style: { gridColumn: '2',     gridRow: '2' } },
-  { img: imgs[3],  style: { gridColumn: '1',     gridRow: '3' } },
-  { logo: true,    style: { gridColumn: '2',     gridRow: '3 / 5' } },
-  { img: imgs[4],  style: { gridColumn: '1',     gridRow: '4' } },
-  { img: imgs[5],  style: { gridColumn: '1 / 3', gridRow: '5' } },
-  { img: imgs[6],  style: { gridColumn: '1',     gridRow: '6' } },
-  { img: imgs[7],  style: { gridColumn: '2',     gridRow: '6' } },
-  { img: imgs[8],  style: { gridColumn: '1',     gridRow: '7' } },
-  { img: imgs[9],  style: { gridColumn: '2',     gridRow: '7' } },
-  { img: imgs[10], style: { gridColumn: '1 / 3', gridRow: '8' } },
+  { img: imgs[0],  style: { gridColumn: '1 / 3', gridRow: '1' } },       // wide top
+  { img: imgs[1],  style: { gridColumn: '3',     gridRow: '1' } },        // tall right
+  { img: imgs[2],  style: { gridColumn: '1',     gridRow: '2' } },
+  { img: imgs[3],  style: { gridColumn: '2',     gridRow: '2' } },
+  { img: imgs[4],  style: { gridColumn: '3',     gridRow: '2' } },
+  { logo: true,    style: { gridColumn: '1 / 4', gridRow: '3' } },        // logo full width
+  { img: imgs[5],  style: { gridColumn: '1',     gridRow: '4' } },
+  { img: imgs[6],  style: { gridColumn: '2',     gridRow: '4' } },
+  { img: imgs[7],  style: { gridColumn: '3',     gridRow: '4' } },
+  { img: imgs[8],  style: { gridColumn: '1 / 3', gridRow: '5' } },        // wide
+  { img: imgs[9],  style: { gridColumn: '3',     gridRow: '5' } },
+  { img: imgs[10], style: { gridColumn: '1 / 4', gridRow: '6' } },        // wide bottom
 ];
 
 function LogoCell() {
@@ -78,7 +60,7 @@ function LogoCell() {
       <img
         src="https://media.base44.com/images/public/69bc11715588f1a8620fc5f8/58d5bf28d_Photoroom_20260319_164513.PNG"
         alt="APEX Dubinsko Pranje logo"
-        className="relative z-10 w-3/4 h-3/4 object-contain drop-shadow-lg"
+        className="relative z-10 w-1/2 md:w-3/4 h-3/4 object-contain drop-shadow-lg"
       />
     </div>
   );
@@ -96,11 +78,10 @@ function ImgCell({ img, onClick }) {
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-dark-brown/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-        <div className="w-10 h-10 rounded-full border border-gold/50 flex items-center justify-center">
-          <span className="text-gold text-lg">+</span>
+        <div className="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center">
+          <span className="text-gold text-base">+</span>
         </div>
       </div>
-      <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 rounded-lg transition-all duration-500" />
     </div>
   );
 }
@@ -109,19 +90,19 @@ export default function GallerySection() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="galerija" className="relative py-24 md:py-32 bg-dark-brown">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="galerija" className="relative py-16 md:py-32 bg-dark-brown">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <SectionDivider />
           <h2 className="font-playfair text-3xl md:text-5xl font-bold text-cream text-center mt-8 mb-4">
             Rezultati govore <span className="text-gold italic">sami za sebe</span>
           </h2>
-          <p className="font-inter text-cream/50 text-center mb-16 text-sm">
+          <p className="font-inter text-cream/50 text-center mb-10 md:mb-16 text-sm">
             Pogledajte transformacije koje postižemo
           </p>
         </AnimatedSection>
 
-        {/* Desktop grid */}
+        {/* Desktop grid — UNCHANGED */}
         <div
           className="hidden md:grid gap-3"
           style={{ gridTemplateColumns: 'repeat(4, 1fr)', gridAutoRows: '180px' }}
@@ -133,10 +114,10 @@ export default function GallerySection() {
           ))}
         </div>
 
-        {/* Mobile grid */}
+        {/* Mobile grid — 3 columns, tighter rows */}
         <div
-          className="grid md:hidden gap-3"
-          style={{ gridTemplateColumns: 'repeat(2, 1fr)', gridAutoRows: '140px' }}
+          className="grid md:hidden gap-2"
+          style={{ gridTemplateColumns: 'repeat(3, 1fr)', gridAutoRows: '90px' }}
         >
           {mobile.map((item, i) => (
             <div key={i} style={item.style}>
