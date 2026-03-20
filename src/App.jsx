@@ -6,6 +6,10 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Home from './pages/Home';
+import DubinskoCiscenjePancevo from './pages/DubinskoCiscenjePancevo';
+import CiscentjeNamestajaPancevo from './pages/CiscentjeNamestajaPancevo';
+import PranjeTepiha from './pages/PranjeTepiha';
+import DubinskoPranjeKola from './pages/DubinskoPranjeKola';
 // Add page imports here
 
 const AuthenticatedApp = () => {
