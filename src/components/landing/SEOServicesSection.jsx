@@ -69,10 +69,10 @@ export default function SEOServicesSection() {
               <Link
                 to={s.path}
                 aria-label={s.label}
-                className="group relative flex flex-col h-full overflow-hidden rounded-xl border border-gold/20 bg-gradient-to-br from-[#1f0d02] to-[#0d0400] p-5 md:p-7 hover:border-gold/50 transition-all duration-400 hover:shadow-lg hover:shadow-gold/10"
+                className="group relative flex flex-col h-full overflow-hidden rounded-xl border border-gold/20 bg-gradient-to-br from-[#1f0d02] to-[#0d0400] p-4 md:p-7 hover:border-gold/50 transition-all duration-400 hover:shadow-lg hover:shadow-gold/10"
               >
                 {/* Big number watermark */}
-                <span className="hidden md:block absolute top-3 right-4 font-playfair text-6xl font-bold text-gold/5 group-hover:text-gold/10 transition-colors duration-500 select-none leading-none">
+                <span className="absolute top-3 right-4 font-playfair text-5xl md:text-6xl font-bold text-gold/5 group-hover:text-gold/10 transition-colors duration-500 select-none leading-none">
                   {s.num}
                 </span>
 

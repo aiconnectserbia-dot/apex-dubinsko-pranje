@@ -42,13 +42,13 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
           {features.map((feat, i) => (
             <AnimatedSection key={feat.title} delay={0.1 * (i + 1)}>
-              <div className="group flex flex-row sm:flex-col items-center sm:text-center gap-4 sm:gap-0 border border-gold/10 rounded-xl bg-secondary/20 p-5 sm:p-8 hover:border-gold/30 transition-all duration-400">
+              <div className="group flex flex-row sm:flex-col items-center sm:text-center gap-4 sm:gap-0 border border-gold/15 rounded-xl bg-gradient-to-br from-[#1c0a01] to-[#0d0400] p-5 sm:p-8 hover:border-gold/35 transition-all duration-400">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 sm:mx-auto sm:mb-5 rounded-full border border-gold/30 flex items-center justify-center flex-shrink-0 group-hover:border-gold/60 group-hover:bg-gold/5 transition-all duration-400">
                   <feat.icon size={20} className="text-gold" />
                 </div>
                 <div>
                   <h3 className="font-playfair text-base sm:text-lg font-semibold text-cream sm:mb-2">{feat.title}</h3>
-                  <p className="font-inter text-cream/45 text-xs sm:text-sm leading-relaxed hidden sm:block">{feat.desc}</p>
+                  <p className="font-inter text-cream/45 text-xs sm:text-sm leading-relaxed sm:block">{feat.desc}</p>
                 </div>
               </div>
             </AnimatedSection>
