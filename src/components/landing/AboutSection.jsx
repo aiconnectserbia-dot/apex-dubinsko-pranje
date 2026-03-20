@@ -33,7 +33,7 @@ export default function AboutSection() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.15}>
-          <p className="font-inter text-cream/55 text-center max-w-2xl mx-auto leading-relaxed text-sm md:text-base mb-12">
+          <p className="font-inter text-cream/70 text-center max-w-2xl mx-auto leading-relaxed text-sm md:text-base mb-12">
             APEX je servis dubinskog pranja iz Pančeva. Koristimo profesionalnu opremu koja prodire duboko u vlakna, uklanja prljavštinu, bakterije i neprijatne mirise — vraćajući vaš nameštaj, tepih i auto enterijer u prvobitno stanje.
           </p>
         </AnimatedSection>
