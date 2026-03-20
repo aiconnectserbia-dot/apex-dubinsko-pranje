@@ -34,10 +34,10 @@ function ServiceCard({ svc }) {
   return (
     <div className="group relative overflow-hidden rounded-xl border border-gold/15 bg-gradient-to-br from-secondary/80 to-dark-brown hover:border-gold/40 transition-all duration-500 aspect-square md:aspect-auto md:h-72">
       {/* Background image */}
-      <div className="absolute inset-0 opacity-20 group-hover:opacity-35 transition-opacity duration-700">
+      <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700">
         <img src={svc.image} alt={svc.title} className="w-full h-full object-cover" loading="lazy" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-dark-brown via-dark-brown/85 to-dark-brown/50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-dark-brown via-dark-brown/70 to-dark-brown/20" />
 
       {/* Content — bottom aligned on mobile (square), normal on desktop */}
       <div className="relative h-full flex flex-col justify-end p-4 md:p-8 md:justify-start">
