@@ -49,7 +49,7 @@ export default function SEOServicesSection() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
           {services.map((s, i) => (
             <AnimatedSection key={s.path} delay={0.1 * (i + 1)}>
               <Link

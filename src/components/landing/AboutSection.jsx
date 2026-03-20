@@ -38,7 +38,7 @@ export default function AboutSection() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {features.map((feat, i) => (
             <AnimatedSection key={feat.title} delay={0.1 * (i + 1)}>
               <div className="text-center group">
