@@ -13,6 +13,17 @@ import {
 export default function SEOPageLayout({ h1, subtitle, children, faqs, relatedServices }) {
   return (
     <main className="pt-28 pb-24">
+      {/* Back button */}
+      <div className="max-w-4xl mx-auto px-6 mb-6">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-cream/50 hover:text-gold text-sm font-inter transition-colors duration-300"
+        >
+          <ArrowLeft size={15} />
+          Nazad na početnu
+        </Link>
+      </div>
+
       {/* Hero */}
       <div className="max-w-4xl mx-auto px-6 text-center mb-16">
         <AnimatedSection>
