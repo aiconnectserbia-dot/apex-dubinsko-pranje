@@ -45,7 +45,6 @@ export default function Home() {
           <PricingSection />
           <GallerySection />
           <ReviewsSection />
-          <ContactSection />
           <FAQSection />
         </main>
         <Footer />
