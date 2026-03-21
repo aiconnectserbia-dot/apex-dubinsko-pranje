@@ -164,11 +164,11 @@ export default function HeroSection() {
           </p>
 
           <div className="flex items-center justify-center gap-3">
-            <a href="#kontakt" className="text-center px-8 py-3.5 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20">
-              Zatražite termin
-            </a>
-            <a href="tel:+381611568748" className="text-center px-8 py-3.5 border border-gold/40 text-gold font-inter text-sm tracking-wider uppercase rounded-sm bg-gold/5 hover:bg-gold/15 hover:border-gold/60 transition-all duration-300">
+            <a href="tel:+381611568748" className="text-center px-8 py-3.5 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/20">
               Pozovite nas
+            </a>
+            <a href="#cenovnik" className="text-center px-8 py-3.5 border border-gold/40 text-gold font-inter text-sm tracking-wider uppercase rounded-sm bg-gold/5 hover:bg-gold/15 hover:border-gold/60 transition-all duration-300">
+              Pogledajte cene
             </a>
           </div>
 
