@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Droplets, Shield } from 'lucide-react';
+import { Sparkles, Droplets, Shield, Phone } from 'lucide-react';
 
 const bgImages = [
   'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg',
