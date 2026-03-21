@@ -80,16 +80,16 @@ export default function HeroSection() {
             className="flex flex-col gap-3 w-full max-w-[260px]"
           >
             <a
-              href="#kontakt"
+              href="tel:+381611568748"
               className="text-center py-4 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/20"
             >
-              Zatražite termin
+              Pozovite nas
             </a>
             <a
-              href="tel:+381611568748"
+              href="#cenovnik"
               className="text-center py-3.5 border border-gold/50 text-gold font-inter text-sm tracking-wider uppercase rounded-sm bg-gold/8 backdrop-blur-sm hover:bg-gold/15 transition-all duration-300"
             >
-              Pozovite nas
+              Pogledajte cene
             </a>
           </motion.div>
 
