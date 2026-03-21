@@ -8,7 +8,6 @@ import SEOServicesSection from '../components/landing/SEOServicesSection';
 import PricingSection from '../components/landing/PricingSection';
 import GallerySection from '../components/landing/GallerySection';
 import ReviewsSection from '../components/landing/ReviewsSection';
-import ContactSection from '../components/landing/ContactSection';
 import FAQSection from '../components/landing/FAQSection';
 import Footer from '../components/landing/Footer';
 
