@@ -186,7 +186,17 @@ export default function HeroSection() {
             </a>
           </div>
 
-          <div className="mt-10 flex items-center justify-center gap-8 flex-wrap">
+          <a
+            href="tel:+381611568748"
+            className="mt-8 inline-flex items-center gap-3 border border-gold/30 rounded-full px-7 py-3 bg-gold/8 hover:bg-gold/15 hover:border-gold/60 transition-all duration-300 group"
+          >
+            <div className="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/30 transition-colors">
+              <Phone size={13} className="text-gold" />
+            </div>
+            <span className="font-inter text-cream/90 text-sm font-medium tracking-wide">+381 61 156 8748</span>
+          </a>
+
+          <div className="mt-6 flex items-center justify-center gap-8 flex-wrap">
             {badges.map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-1.5 text-cream/35">
                 <Icon size={13} className="text-gold/50" />
