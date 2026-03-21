@@ -43,11 +43,19 @@ export default function ContactSection() {
           <p className="font-inter text-cream/50 text-center mb-4 text-sm">
             Pančevo i okolina — dolazimo kod vas
           </p>
-          <div className="flex items-center justify-center gap-6 mb-12">
+          <div className="flex items-center justify-center gap-6 mb-12 flex-wrap">
             <div className="flex items-center gap-2 text-cream/40 text-xs font-inter">
               <MapPin size={14} className="text-gold/60" />
               <span>Pančevo, Srbija</span>
             </div>
+            <a href="tel:+381611568748" className="flex items-center gap-2 text-cream/40 hover:text-gold text-xs font-inter transition-colors">
+              <Phone size={14} className="text-gold/60" />
+              <span>+381 61 156 8748</span>
+            </a>
+            <a href="mailto:dubinskopranjeapex@gmail.com" className="flex items-center gap-2 text-cream/40 hover:text-gold text-xs font-inter transition-colors">
+              <Mail size={14} className="text-gold/60" />
+              <span>dubinskopranjeapex@gmail.com</span>
+            </a>
           </div>
         </AnimatedSection>
 
