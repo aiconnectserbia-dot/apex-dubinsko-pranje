@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Send, MapPin, Phone } from 'lucide-react';
+import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 import SectionDivider from './SectionDivider';
-import { toast } from 'sonner';
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/dubinskopranjeapex@gmail.com';
 
 const serviceOptions = [
   'Stolica', 'Fotelja', 'Dvosed', 'Trosed', 'Ugaona garnitura',
@@ -12,13 +13,20 @@ const serviceOptions = [
 ];
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: '', phone: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
-    toast.success('Upit je uspešno poslat! Javićemo vam se uskoro.');
+    setLoading(true);
+    const data = new FormData(e.target);
+    const res = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' }
+    });
+    setLoading(false);
+    if (res.ok) setSent(true);
   };
 
   return (
