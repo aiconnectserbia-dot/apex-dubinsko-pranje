@@ -86,8 +86,7 @@ export default function ContactSection() {
                   <input
                     required
                     type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({...form, name: e.target.value})}
+                    name="name"
                     className="w-full bg-dark-brown/60 border border-gold/15 rounded-sm px-4 py-3 text-cream font-inter text-sm focus:border-gold/40 focus:outline-none transition-colors placeholder:text-cream/20"
                     placeholder="Vaše ime"
                   />
@@ -97,8 +96,7 @@ export default function ContactSection() {
                   <input
                     required
                     type="tel"
-                    value={form.phone}
-                    onChange={(e) => setForm({...form, phone: e.target.value})}
+                    name="phone"
                     className="w-full bg-dark-brown/60 border border-gold/15 rounded-sm px-4 py-3 text-cream font-inter text-sm focus:border-gold/40 focus:outline-none transition-colors placeholder:text-cream/20"
                     placeholder="+381 6X XXX XXXX"
                   />
@@ -109,8 +107,7 @@ export default function ContactSection() {
                 <label className="block text-cream/50 text-xs font-inter tracking-wide uppercase mb-2">Usluga</label>
                 <select
                   required
-                  value={form.service}
-                  onChange={(e) => setForm({...form, service: e.target.value})}
+                  name="service"
                   className="w-full bg-dark-brown/60 border border-gold/15 rounded-sm px-4 py-3 text-cream font-inter text-sm focus:border-gold/40 focus:outline-none transition-colors"
                 >
                   <option value="" className="bg-dark-brown">Izaberite uslugu</option>
@@ -124,8 +121,7 @@ export default function ContactSection() {
                 <label className="block text-cream/50 text-xs font-inter tracking-wide uppercase mb-2">Poruka</label>
                 <textarea
                   rows={4}
-                  value={form.message}
-                  onChange={(e) => setForm({...form, message: e.target.value})}
+                  name="message"
                   className="w-full bg-dark-brown/60 border border-gold/15 rounded-sm px-4 py-3 text-cream font-inter text-sm focus:border-gold/40 focus:outline-none transition-colors resize-none placeholder:text-cream/20"
                   placeholder="Opišite šta vam je potrebno..."
                 />
@@ -133,10 +129,11 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full py-4 bg-gold text-dark-brown font-inter font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
               >
                 <Send size={16} />
-                Pošalji upit
+                {loading ? 'Slanje...' : 'Pošalji upit'}
               </button>
 
               <p className="text-center text-cream/30 text-xs font-inter mt-4">
