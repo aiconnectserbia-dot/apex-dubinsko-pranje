@@ -93,12 +93,26 @@ export default function HeroSection() {
             </a>
           </motion.div>
 
+          {/* Phone number display */}
+          <motion.a
+            href="tel:+381611568748"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-8 flex items-center gap-3 border border-gold/30 rounded-full px-6 py-3 bg-gold/8 backdrop-blur-sm hover:bg-gold/15 hover:border-gold/60 transition-all duration-300 group"
+          >
+            <div className="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/30 transition-colors">
+              <Phone size={13} className="text-gold" />
+            </div>
+            <span className="font-inter text-cream/90 text-sm font-medium tracking-wide">+381 61 156 8748</span>
+          </motion.a>
+
           {/* Trust badges */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-12 flex items-center justify-center gap-6 flex-wrap"
+            className="mt-8 flex items-center justify-center gap-6 flex-wrap"
           >
             {badges.map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-1.5 text-cream/45">
