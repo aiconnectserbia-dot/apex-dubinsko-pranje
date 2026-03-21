@@ -86,10 +86,10 @@ export default function HeroSection() {
               Zatražite termin
             </a>
             <a
-              href="#cenovnik"
+              href="tel:+381611568748"
               className="text-center py-3.5 border border-gold/50 text-gold font-inter text-sm tracking-wider uppercase rounded-sm bg-gold/8 backdrop-blur-sm hover:bg-gold/15 transition-all duration-300"
             >
-              Pogledajte cene
+              Pozovite nas
             </a>
           </motion.div>
 
