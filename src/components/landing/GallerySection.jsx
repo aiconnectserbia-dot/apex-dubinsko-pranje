@@ -5,17 +5,17 @@ import AnimatedSection from './AnimatedSection';
 import SectionDivider from './SectionDivider';
 
 const imgs = [
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg', alt: 'Dubinsko pranje garniture' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg', alt: 'Pranje auto enterijera' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/155e82556_IMG_4441.jpg', alt: 'Profesionalno dubinsko pranje' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg', alt: 'Čišćenje nameštaja' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg', alt: 'Pranje fotelje pre i posle' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg', alt: 'Sredstva za dubinsko pranje' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/a47e2183b_IMG_4445.jpg', alt: 'Pranje tepiha u Pančevu' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/2b90fef5b_IMG_4436.jpg', alt: 'Pranje nameštaja parom' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg', alt: 'APEX dubinsko čišćenje sofe' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg', alt: 'Pranje auto sedišta' },
-  { src: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/47204fc99_IMG_4434.jpg', alt: 'Tepih dubinsko pranje' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476645/slika1_e86qyo.jpg', alt: 'Dubinsko pranje garniture' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476645/slika2_tvfndn.jpg', alt: 'Pranje auto enterijera' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika3_frdbnp.jpg', alt: 'Profesionalno dubinsko pranje' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476645/slika4_v6pmep.jpg', alt: 'Čišćenje nameštaja' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika5_azayj7.jpg', alt: 'Pranje fotelje pre i posle' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika6_sc5f9x.jpg', alt: 'Sredstva za dubinsko pranje' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika7_nfgwcd.jpg', alt: 'Pranje tepiha u Pančevu' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika8_dtorqg.jpg', alt: 'Pranje nameštaja parom' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika9_as3vv5.jpg', alt: 'APEX dubinsko čišćenje sofe' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476645/slika2_tvfndn.jpg', alt: 'Pranje auto sedišta' },
+  { src: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika3_frdbnp.jpg', alt: 'Tepih dubinsko pranje' },
 ];
 
 // Desktop grid — UNCHANGED

@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { Sparkles, Droplets, Shield, Phone } from 'lucide-react';
 
 const bgImages = [
-  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6693a65b7_IMG_4439.jpg',
-  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/9d1d1da1e_IMG_4440.jpg',
-  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/825f92c59_IMG_4444.jpg',
-  'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/00fd28600_IMG_4437.jpg',
+  'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476645/slika1_e86qyo.jpg',
+  'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476645/slika2_tvfndn.jpg',
+  'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika5_azayj7.jpg',
+  'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika6_sc5f9x.jpg',
 ];
 
 const badges = [

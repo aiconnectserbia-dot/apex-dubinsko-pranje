@@ -8,25 +8,25 @@ const services = [
     icon: Sofa,
     title: 'Garniture',
     desc: 'Stolice, fotelje, dvosedi, trosedi, ugaone garniture.',
-    image: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/e3c8699c8_IMG_4442.jpg'
+    image: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476645/slika4_v6pmep.jpg'
   },
   {
     icon: BedDouble,
     title: 'Dušeci',
     desc: 'Singl i bračni dušeci, jednostrano ili obostrano.',
-    image: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/532aee84d_IMG_4443.jpg'
+    image: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika9_as3vv5.jpg'
   },
   {
     icon: Layers,
     title: 'Tepisi',
     desc: 'Taburei, jastuci, tepisi po m².',
-    image: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/47204fc99_IMG_4434.jpg'
+    image: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika7_nfgwcd.jpg'
   },
   {
     icon: Car,
     title: 'Automobili',
     desc: 'Mali auto, SUV, karavan — enterijer kao iz salona.',
-    image: 'https://media.base44.com/images/public/user_6961800a0a96c491f36e7204/6bd190a5c_IMG_4438.jpg'
+    image: 'https://res.cloudinary.com/dnik9se1m/image/upload/v1774476644/slika8_dtorqg.jpg'
   },
 ];
 
