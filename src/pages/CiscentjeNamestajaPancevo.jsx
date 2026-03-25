@@ -72,7 +72,7 @@ export default function CiscentjeNamestajaPancevo() {
       <div className="min-h-screen bg-dark-brown font-inter">
         <Navbar />
         <SEOPageLayout
-          h1="Dubinsko čišćenje nameštaja u Pančevu"
+          h1="Dubinsko pranje nameštaja u Pančevu"
           subtitle="Garniture, dušeci, fotelje i stolice — dubinski opramo sve, na vašoj adresi"
           faqs={faqs}
           relatedServices={relatedServices}
