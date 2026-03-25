@@ -73,7 +73,7 @@ export default function CiscentjeNamestajaPancevo() {
         <Navbar />
         <SEOPageLayout
           h1="Dubinsko pranje nameštaja u Pančevu"
-          subtitle="Garniture, dušeci, fotelje i stolice — dubinski opramo sve, na vašoj adresi"
+          subtitle="Garniture, dušeci, fotelje i stolice — dubinski oprano sve, na vašoj adresi"
           faqs={faqs}
           relatedServices={relatedServices}
         >
@@ -81,7 +81,7 @@ export default function CiscentjeNamestajaPancevo() {
           <section>
             <h2 className="font-playfair text-2xl font-semibold text-cream mb-4">Ko smo mi?</h2>
             <p className="font-inter text-cream/60 leading-relaxed mb-3">
-              APEX je servis za dubinsko čišćenje nameštaja dostupan za klijente u Pančevu i okolini.
+              APEX je servis za dubinsko pranje nameštaja dostupan za klijente u Pančevu i okolini.
               Radimo profesionalnom opremom i sredstvima koja su bezbedna za decu i kućne ljubimce.
             </p>
             <p className="font-inter text-cream/60 leading-relaxed">
