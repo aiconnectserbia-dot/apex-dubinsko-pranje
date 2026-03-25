@@ -62,7 +62,7 @@ function LogoCell() {
         <div className="w-24 h-24 rounded-full bg-gold/10 blur-2xl" />
       </div>
       <img
-        src="https://media.base44.com/images/public/69bc11715588f1a8620fc5f8/58d5bf28d_Photoroom_20260319_164513.PNG"
+        src="https://res.cloudinary.com/dnik9se1m/image/upload/v1774477020/B7C3E551-A616-4D0F-9102-B492D7442ED6_yd17cd.png"
         alt="APEX Dubinsko Pranje logo"
         className="relative z-10 w-4/5 h-4/5 object-contain drop-shadow-lg"
       />
